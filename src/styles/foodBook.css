@@ -1,0 +1,141 @@
+
+
+.foodbook {
+    font-family: "Permanent Marker";
+    grid-area: wrapper;
+    margin: 0 auto;
+    max-width: 1960px;
+    min-height: 900px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(250px, auto);
+    gap: 10px;
+    grid-template-areas: 
+    "header header"
+    "nav nav"
+    "main main"
+    "main main"
+    "section aside"
+    "section aside"
+    "footer footer"
+    ;
+}
+
+@media screen and (min-width: 760px) {
+    .foodbook {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-auto-rows: minmax(250px, auto);
+        gap: 10px;
+        grid-template-areas: 
+        "header header nav nav nav"
+        "main main . section section"
+        "main main . aside aside"
+        "footer footer footer footer footer"
+        ;
+        /* align-items: stretch;
+        justify-items: stretch; */
+    }
+}
+
+.foodbook p {
+    padding: 0;
+    margin: 0;
+}
+.foodbook h1 {
+    padding: 0;
+    margin: 0;
+}
+.foodbook h2 {
+    padding: 0;
+    margin: 0;
+}
+.foodbook h3 {
+    padding: 0;
+    margin: 0;
+}
+
+.foodbook > * {
+    color: #000;
+    background: #95d3eb;
+    padding: 10px;
+}
+
+.foodbook .header {
+    grid-area: header;
+    display: grid;
+}
+
+.foodbook .main {
+    grid-area: main;
+    display: grid;
+}
+
+.foodbook .section {
+    grid-area: section;
+    display: grid;
+}
+
+.foodbook .aside {
+    grid-area: aside;
+    display: grid;
+}
+
+.foodbook .nav {
+    grid-area: nav;
+    display: grid;
+}
+
+.foodbook .footer {
+    grid-area: footer;
+    display: grid;
+}
+
+.foodbook .endend {
+    background: lightsteelblue;
+    display: grid;
+    
+    justify-items: end;
+    align-items: end;
+}
+
+.foodbook .startend {
+    background:lightgoldenrodyellow;
+    display: grid;
+    
+    justify-items: start;
+    align-items: end;
+}
+
+.foodbook .centerend {
+    background:lightcoral;
+    display: grid;
+    
+    justify-items: center;
+    align-items: end;
+}
+
+.foodbook .centerstart {
+    background:lightgreen;
+    display: grid;
+    
+    justify-items: center;
+    align-items: start;
+}
+
+.foodbook .startstart {
+    background:lightseagreen;
+    display: grid;
+    
+    justify-items: start;
+    align-items: start;
+}
+
+.foodbook .centercenter {
+    background: lightpink;
+    display: grid;
+    
+    justify-items: center;
+    align-items: center;
+}

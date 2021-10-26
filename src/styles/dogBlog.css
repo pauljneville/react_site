@@ -1,0 +1,361 @@
+
+.dogblog {
+  font-family: "Open Sans";
+  grid-area: wrapper;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-areas:
+  "header"
+  "navbar"
+  "sidebar"
+  "content"
+  "footer";
+
+  grid-gap: 1em;
+  margin: 0 auto;
+  padding: 0 50px 0 50px;
+}
+
+canvas {
+  border: 1px dashed #000000;
+}
+
+iframe {
+  overflow: auto;
+}
+
+.dogblog .blog-list img {
+  width: 50px;
+  height: 50px;
+  
+  border-radius: 50%;
+}
+.dogblog .friend-preview {
+  background-color: #f2aac0;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border: 1px solid #ff1717;
+  border-radius: 20px;
+  margin: 5px;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.dogblog .header h1, .dogblog .navbar h1 {
+  color: #f1356d;
+}
+.dogblog .header h2, .dogblog .navbar h2 {
+  color: #383838;
+}
+.dogblog .navbar a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px 6px 30px 6px;
+}
+.dogblog .navbar a:hover {
+  color: white;
+  background-color: hsl(342, 87%, 58%);
+  border-radius: 8px;
+}
+.dogblog .navbar a:active {
+  color: white;
+  background-color: #f5739a;
+  border-radius: 8px;
+}
+
+.dogblog .navbar .links {
+  display: flex;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0rem;
+}
+
+
+@media only screen and (min-width: 700px)  {
+    .media-box {
+      background-color: #A7EE70;
+    }
+  .dogblog {
+    grid-template-columns: auto 280px;
+    grid-template-areas:
+    "header  header"
+    "navbar  navbar"
+    "content  sidebar"
+    "content  sidebar"
+    "footer  footer";
+  }
+  .dogblog .header {
+    border-bottom: none;
+  }
+  .dogblog .navbar .links {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0rem;
+  }
+
+}
+@media only screen and (min-width: 800px)   {
+    .media-box {
+      background-color: #70e6ee;
+    }
+
+  .dogblog {
+    grid-gap: 20px;
+    grid-template-columns: auto auto 280px;
+    grid-template-areas:
+    "header  navbar  navbar"
+    "content  content  sidebar"
+    "content  content  sidebar"
+    "footer  footer  footer";
+    max-width: 800px;
+  }
+  .dogblog .navbar .links {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0rem;
+  }
+  .dogblog .header{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    width: 100%;
+    padding: 20px 0 20px 0px;
+    border-bottom: 1px solid #b6b6b6;
+  }
+  
+}
+
+.dogblog .link-button {
+  display: flex;
+  justify-content: center;
+}
+
+.dogblog .header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  width: 100%;
+  padding: 20px 0 20px 0px;
+}
+.dogblog .navbar {
+  grid-area: navbar;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  width: 100%;
+  padding: 20px 0 20px 0px;
+  border-bottom: 1px solid #b6b6b6;
+}
+.dogblog .contents {
+  grid-area: content;
+  padding-top: 10px;
+}
+.dogblog .sidebar {
+  grid-area: sidebar;
+  background-color: #282c34;
+  padding: 20px;
+  
+}
+.dogblog .footer {
+  grid-area: footer;
+  background-color: #282c34;
+  color: white;
+  height: 50px;
+  padding: 30px 50px 0 50px;
+}
+
+.dogblog .sidebar p {
+  color: white;
+  text-decoration: 'none';
+}
+.dogblog .sidebar img {
+  border-radius: 40px;
+  max-width: 280px;
+  max-height: 280px;
+}
+.dogblog .blog-list {
+  /* padding: 20px 0px 0px 0px; */
+  
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+
+
+.dogblog textarea {
+  resize: none;
+  max-width: 400px;
+}
+
+
+.dogblog .profile img {
+  width: 200px;
+  height: 200px;
+}
+
+.dogblog button {
+    background: #f1356d;
+    color: #fff;
+    border: 0;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.dogblog .log-in-form {
+  max-width: 400px;
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* create new blog form */
+.dogblog .create {
+  max-width: 400px;
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.dogblog .create form {
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.dogblog .create h2 {
+  margin-bottom: 10px;
+}
+.dogblog .create label {
+  margin-left: 5px;
+  font-weight: 800;
+}
+.dogblog .create input, .dogblog .create textarea, .dogblog .create select {
+  width: auto;
+  padding: 6px 10px;
+  margin: 0px 0 20px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+.dogblog .create textarea {
+  height: 100px;
+}
+.dogblog .create button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.dogblog .create select {
+  font-size: 26px;
+}
+.dogblog .create p {
+  text-align: start;
+}
+
+/* blog details page */
+.dogblog .blog-details article {
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.dogblog .blog-details h2 {
+  margin-bottom: 10px;
+}
+.dogblog .blog-details div {
+  margin: 20px 0;
+}
+.dogblog .blog-details button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* blog-preview */
+.dogblog .blog-preview {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 1px solid #b6b6b6;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .dogblog .blog-preview:hover {
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+  }
+  .dogblog .blog-preview .leading h3 {
+    font-size: 20px;
+  }
+  .dogblog .blog-preview .trailing {
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .dogblog .blog-preview h3 {
+    color: #f1356d;
+  }
+
+/* links */
+.dogblog .links h2 {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 10px;
+  border-radius: 8px;
+  cursor:pointer;
+}
+.dogblog .links h2 {
+  color: white;
+  text-align: center;
+}
+.dogblog .links h2:hover {
+  text-decoration: 'none';
+  color: white;
+  background-color: hsl(342, 87%, 58%);
+  border-radius: 8px;
+}
+
+
+/* auth-form */
+.dogblog .auth-form form {
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.dogblog .auth-form h2 {
+  margin-bottom: 10px;
+}
+.dogblog .auth-form label {
+  margin-left: 5px;
+  font-weight: 800;
+}
+.dogblog .auth-form input, .dogblog .auth-form textarea, .dogblog .auth-form select {
+  width: auto;
+  padding: 6px 10px;
+  margin: 0px 0 20px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+.dogblog .auth-form textarea {
+  height: 100px;
+}
+.dogblog .auth-form select {
+  font-size: 26px;
+}
+.dogblog .auth-form p {
+  text-align: start;
+}
+.dogblog .auth-form switch {
+  display: flex;
+}
+.dogblog .auth-form input {
+  margin-right: 10px;
+}
