@@ -34,6 +34,10 @@ const Chevron = () => {
         )
     };
 
+    const handleLogout = () => {
+
+    }
+
     return (
         <div className="chevron">
             <Helmeted></Helmeted>
@@ -49,7 +53,7 @@ const Chevron = () => {
                     <Link to={chevronLinks.training.url} className="link-button"><h2>{chevronLinks.training.label}</h2></Link>
                     <Link to={chevronLinks.walking.url} className="link-button"><h2>{chevronLinks.walking.label}</h2></Link>
 
-                    <div className="login"><button>LOG-IN</button></div>
+                    <div className="login"><button onClick={() => handleLogout()}>LOG-IN</button></div>
                 </div>
 
             </div>

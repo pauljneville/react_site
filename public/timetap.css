@@ -1,13 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Itim&family=Permanent+Marker&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
 
 * {
-    font-family: "Permanent Marker";
+    font-family: "Comfortaa";
     text-align: center;
 }
 
 h1 {
-  color: #f1356d;
+  color: #fed007;
   font-size: 1.5rem;
 }
 
@@ -32,7 +31,7 @@ a {
   }
 a:hover {
     color: white;
-    background-color: hsl(342, 87%, 58%);
+    background-color: hsl(53, 87%, 58%);
     border-radius: 8px;
   }
 a:active {
