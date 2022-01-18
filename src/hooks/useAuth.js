@@ -25,7 +25,7 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [isAuthenticating, setIsAuthenticating] = useState(true);
+    const [isAuthenticating, setIsAuthenticating] = useState(false); //useState(true);
 
     const createUserWithEmailAndPassword = (email, password) => {
         return createWithEmailPassword(auth, email, password)

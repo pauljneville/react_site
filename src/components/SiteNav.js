@@ -10,7 +10,7 @@ const SiteNav = () => {
                 <Link to={siteLinks.dogblog.url} className="link-button">{siteLinks.dogblog.label}</Link>
                 <Link to={siteLinks.plantpurchase.url} className="link-button">{siteLinks.plantpurchase.label}</Link>
                 <Link to={siteLinks.foodbook.url} className="link-button">{siteLinks.foodbook.label}</Link>
-                <Link to={siteLinks.chevron.url} className="link-button">{siteLinks.chevron.label}</Link>
+                <Link to={siteLinks.dogtrain.url} className="link-button">{siteLinks.dogtrain.label}</Link>
             </div>
             <div className="media-box"></div>
         </div>

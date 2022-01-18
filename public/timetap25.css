@@ -1,28 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap'); */
 
-* {
-  font-family: "Comfortaa";
-  text-align: center;
-}
+/* * { */
+  /* font-family: "Comfortaa"; */
+  /* text-align: center; */
+/* } */
 
 h1 {
   color: #000000;
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
 }
 
 h2 {
   color: #f7cc0e;
-  font-size: 2rem;
+  /* font-size: 2rem; */
 }
 
 
-.box {
+/* .box {
   width: 50px;
   height: 20px;
   background: #0d0d0e;
   color: white;
   padding: 30px;
-}
+} */
 
 #miniWebsiteNavigation a {
   margin: 15px 5px 0px 5px;
@@ -46,8 +46,8 @@ a:active {
   color: black;
   background-color: #ffefa8;
   text-decoration: none;
-  border-radius: 8px;
-  padding: 2px 8px;
+  /* border-radius: 8px;
+  padding: 2px 8px; */
 }
 
 a .navigationLink {
@@ -60,6 +60,15 @@ a .navigationLink:active {
   padding: 2px 8px 16px 8px;
 }
 
+a .sideNavLink {
+  color: #fed007;
+}
+
+.mat-nav-list .mat-list-item .mat-list-text {
+
+  color: #fed007;
+}
+
 .mat-stroked-button {
     background-color: #fed007;
     border: none;
@@ -69,8 +78,8 @@ a .navigationLink:active {
 .mat-stroked-button:active {
     background-color: #ffefa8;
     border: none;
-    border-radius: 4px;
-    padding: 4px 8px;
+    /* border-radius: 4px;
+    padding: 4px 8px; */
 }
 
 .mat-list-item-content .fa-check {
@@ -78,7 +87,7 @@ a .navigationLink:active {
 }
 
 .fa-chevron-right {
-  color: #e1b700;
+  color: #000;
 }
 
 
@@ -91,39 +100,3 @@ a .navigationLink:active {
   border-color: #000;
 }
 
-.mat-stroked-button .ng-star-inserted {
-  color: #000;
-  border-color: #000;
-}
-.mat-stroked-button .fa-cart-plus {
-  color: #000;
-  border-color: #000;
-}
-.mat-stroked-button .mat-button-wrapper {
-  color: #000;
-  border-color: #000;
-}
-
-#cartSummaryCard .mat-button-wrapper {
-  color: #000;
-  border-color: #000;
-}
-
-/* span */
-.mat-stroked-button .ng-star-inserted span {
-  color: #000;
-  border-color: #000;
-}
-.mat-stroked-button .fa-cart-plus span {
-  color: #000;
-  border-color: #000;
-}
-.mat-stroked-button .mat-button-wrapper span {
-  color: #000;
-  border-color: #000;
-}
-
-#cartSummaryCard .mat-button-wrapper span {
-  color: #000;
-  border-color: #000;
-}

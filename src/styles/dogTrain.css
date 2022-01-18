@@ -1,27 +1,39 @@
 
 
-.chevron {
+.dog-train {
     font-family: "Comfortaa";
     grid-area: wrapper;
     margin: auto;
-    max-width: 1960px;
-    min-height: 900px;
+    max-width: 960px;
+    /* min-height: 900px; */
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: minmax(100px, auto);
+    /* grid-auto-rows: minmax(auto, auto); */
     gap: 10px;
     grid-template-areas: 
     "header header"
     "nav nav"
-    "booknow booknow"
-    "recruits recruits"
-    "staff staff"
+    "main main"
     "footer footer"
     ;
 }
+.dog-train .mainpage {
+    grid-area: main;
+    gap: 10px;
+}
+.dog-train .mainpage .main-content .home {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas: 
+    "booknow"
+    "recruits"
+    "staff"
+    ;
 
-.chevron .nav .links {
+}
+.dog-train .nav .links {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -30,100 +42,114 @@
 
 
 @media screen and (min-width: 760px) {
-    .chevron {
+    .dog-train {
+        grid-area: wrapper;
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         grid-auto-rows: minmax(auto, auto);
         gap: 10px;
+        margin: auto;
         grid-template-areas: 
         "header . . nav nav"
-        "booknow booknow booknow booknow booknow"
-        "recruits recruits recruits recruits recruits"
-        "staff staff staff staff staff"
         "footer footer footer footer footer"
+        "main main main main main"
         ;
         /* align-items: stretch;
         justify-items: stretch; */
     }
-    .chevron .nav {
+    .dog-train .mainpage {
+        grid-area: main;
+        gap: 10px;
+    }
+    .dog-train .mainpage .main-content .home {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-areas: 
+        "booknow booknow booknow booknow booknow"
+        "recruits recruits recruits recruits recruits"
+        "staff staff staff staff staff"
+        ;
+    
+    }
+    .dog-train .nav {
         min-width: 500px;
     }
 }
 
-.chevron .nav .links .link-button {
+.dog-train .page-link {
     text-decoration: none;
     color: #000;
 }
 
-.chevron p {
+.dog-train p {
     padding: 0;
     margin: 0;
 }
-.chevron h1 {
+.dog-train h1 {
     font-weight: 400;
     font-size: 36px;
     padding: 0;
     margin: 0;
 
 }
-.chevron h2 {
+.dog-train h2 {
     font-weight: 500;
     padding: 0;
     margin: 0;
     
 }
 
-.chevron .logo-text h1 {
-
+.dog-train .logo-text h1 {
     text-shadow: 0px 1.5px 3px #bfbfbf;
 }
-.chevron .logo-text h2 {
-    
+.dog-train .logo-text h2 {
     text-shadow: 0px 1.5px 3px #bfbfbf;
 }
 
-.chevron h3 {
+.dog-train h3 {
     padding: 0;
     margin: 0;
 }
 
-.chevron > * {
+.dog-train > * {
     color: #000;
     /* background: #fff4c5; */
     padding: 10px;
 }
 
-.chevron .header {
+.dog-train .header {
     grid-area: header;
     display: grid;
+    /* background-color: #FED007; */
 }
 
-.chevron .nav {
+.dog-train .nav {
     grid-area: nav;
     display: grid;
 }
 
-.chevron .booknow {
+.dog-train .booknow-section {
     grid-area: booknow;
-    display: grid;
+    /* background-color: #FED007; */
 }
 
-.chevron .recruits {
+.dog-train .recruits {
     grid-area: recruits;
-    display: grid;
+    /* background-color: #FED007; */
 }
 
-.chevron .staff {
+.dog-train .staff {
     grid-area: staff;
-    display: grid;
+    /* background-color: #FED007; */
 }
 
-.chevron .footer {
+.dog-train .footer {
     grid-area: footer;
     display: grid;
 }
 
-.chevron .endend {
+.dog-train .endend {
     /* background: lightsteelblue; */
     display: grid;
     
@@ -131,7 +157,7 @@
     align-items: end;
 }
 
-.chevron .startend {
+.dog-train .startend {
     /* background:lightgoldenrodyellow; */
     display: grid;
     
@@ -139,7 +165,7 @@
     align-items: end;
 }
 
-.chevron .centerend {
+.dog-train .centerend {
     /* background:lightcoral; */
     display: grid;
     
@@ -147,7 +173,7 @@
     align-items: end;
 }
 
-.chevron .centerstart {
+.dog-train .centerstart {
     /* background:lightgreen; */
     display: grid;
     
@@ -155,7 +181,7 @@
     align-items: start;
 }
 
-.chevron .startstart {
+.dog-train .startstart {
     /* background:lightseagreen; */
     display: grid;
     
@@ -163,9 +189,7 @@
     align-items: start;
 }
 
-
-
-.chevron .centercenter {
+.dog-train .centercenter {
     /* background: lightpink; */
     display: grid;
     
@@ -173,61 +197,59 @@
     align-items: center;
 }
 
-
-
-.chevron .logo-text h1 {
+.dog-train .logo-text h1 {
     display: inline;
     font-size: 24px;
 }
 
-.chevron .logo-text h2 {
+.dog-train .logo-text h2 {
     font-size: 14px;
     padding: 0;
     margin: 0;
 }
 
-.chevron .logo-bg{
-    background-image: url("../assets/chevron/paw_print.svg");
+.dog-train .logo-bg{
+    background-image: url("../assets/dogtrain/paw_print.svg");
     background-size: 13px;
     background-repeat:   no-repeat;
     background-position: center center;
     /* background-color: aqua; */
 }
 
-
-.chevron button {
+.dog-train .button-link {
     border: none;
     padding: 16px 16px;
     text-decoration: none;
     background-color: #FED007;
-    font-size: 24px;
-    font-family: "Comfortaa";
+    color: #000;
+    font-size: 20px;
+    /* font-family: "Comfortaa"; */
     border-radius: 10px;
 }
 
-.chevron .booknow button {
+.dog-train .booknow {
     padding: 16px 16px;
-    font-size: 24px;
+    font-size: 28px;
     border-radius: 10px;
 }
 
-.chevron .login button {
+.dog-train .login {
     padding: 10px 10px;
     font-size: 18px;
     border-radius: 6px;
 }
 
-.chevron .booknow {
+.dog-train .booknow-section {
     border-top: 1px solid #000000;
     border-bottom: 1px solid #000000;
     padding: 40px 0 40px 0;
 }
 
-.chevron .booknow .videos {
-    margin: 20px 0;
+.dog-train .booknow-section .videos {
+    margin: 20px 0 40px;
 }
 
-.chevron .booknow .videos > img {
+.dog-train .booknow-section .videos > img {
     min-width: 30%;
     max-width: 30%;
     min-height: 200px;
@@ -237,15 +259,15 @@
     object-fit: cover;
 }
 
-.chevron .title {
+.dog-train .title {
     margin-bottom: 20px;
 }
 
-.chevron .profile-brief {
+.dog-train .profile-brief {
     max-width: 150px;
 }
 
-.chevron .profile-brief .leading img {
+.dog-train .profile-brief .leading img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -253,7 +275,7 @@
     box-shadow: 0px 0px 10px rgb(172, 172, 172);
 }
 
-.chevron .profile-brief h2 {
+.dog-train .profile-brief h2 {
     font-family: "Nunito";
     font-weight: 800;
     font-size: 150%;
@@ -261,33 +283,33 @@
     text-shadow: none;
 }
 
-.chevron .profile-brief h3 {
+.dog-train .profile-brief h3 {
     font-weight: 800;
     font-size: 120%;
 
     text-shadow: none;
 }
 
-.chevron .profile-brief p {
+.dog-train .profile-brief p {
     font-weight: 500;
     font-size: 90%;
 
     text-shadow: none;
 }
 
-.chevron .footer {
+.dog-train .footer {
     border-top: 1px solid #000;
 }
 
-.chevron .footer img {
+.dog-train .footer img {
     margin: 0px 2px;
 }
-.chevron .footer .sections{
+.dog-train .footer .sections{
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
 }
 
-.chevron .footer .sections h4 {
+.dog-train .footer .sections h4 {
     border-bottom: 1px solid #000;
 }

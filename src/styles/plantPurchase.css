@@ -50,9 +50,9 @@
 
 .plantpurchase .inner-row {
     display: grid;
-    margin: 5px;
+    row-gap: 5px;
     /* grid-template-columns: 1fr 1fr; */
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
 }
 .plantpurchase .inner-row-box {
     background: #a9f53e;

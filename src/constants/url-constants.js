@@ -3,7 +3,7 @@ export const siteLinks = {
     dogblog: { url: "/dogblog", label: "Dog Blog" },
     plantpurchase: { url: "/plantpurchase", label: "Plant Purchase" },
     foodbook: { url: "/foodbook", label: "Food Book" },
-    chevron: { url: "/chevron", label: "Chevron" },
+    dogtrain: { url: "/dogtrain", label: "Dog Train" },
 };
 
 export const dogBlogLinks = {
@@ -20,7 +20,10 @@ export const dogBlogLinks = {
     blogs: { url: siteLinks.dogblog.url + "/blogs/", label: "Blogs" },
 };
 
-export const chevronLinks = {
-    training: { url: siteLinks.chevron.url + "/training", label: "Training" },
-    walking: { url: siteLinks.chevron.url + "/walking", label: "Walking" },
+export const dogTrainLinks = {
+    home: { url: siteLinks.dogtrain.url, label: "Home" },
+    training: { url: siteLinks.dogtrain.url + "/training", label: "Training" },
+    walking: { url: siteLinks.dogtrain.url + "/walking", label: "Walking" },
+    login: { url: siteLinks.dogtrain.url + "/login", label: "Login" },
+    signup: { url: siteLinks.dogtrain.url + "/signup", label: "Signup" },
 }
