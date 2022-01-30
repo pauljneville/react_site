@@ -25,7 +25,7 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [isAuthenticating, setIsAuthenticating] = useState(false); //useState(true);
+    const [isAuthenticating, setIsAuthenticating] = useState(false);
 
     const createUserWithEmailAndPassword = (email, password) => {
         return createWithEmailPassword(auth, email, password)
@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }) => {
 
     const sendSignInLinkToEmail = email => {
         return sendEmailLink(auth, email, {
-            url: 'https://paulneville.com.au/confirm', //'http://localhost:3000/confirm',
+            url: '%PUBLIC_URL%/confirm',
             handleCodeInApp: true
         })
             .then(() => {

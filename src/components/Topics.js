@@ -24,7 +24,7 @@ const Topics = () => {
         setFriends(friendsList)
       })
       .catch((error => {
-        setError("Server error. Sorryy 😬"); // String.fromCodePoint("0x1F480"));
+        setError("Server error. Sorryy 😬");
       }));
     setIsPending(false);
   }

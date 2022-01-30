@@ -32,7 +32,7 @@ const PlantPurchase = () => {
 
     return (
         <div className="plantpurchase">
-            <Helmeted></Helmeted>
+            <Helmeted />
             <h1>Plant Purchase</h1>
             <h3>Need to get me some better purchase</h3>
 

@@ -21,28 +21,15 @@ export default function App() {
       <div className="site-wrapper">
         <SiteNav />
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/" >
             <Redirect to={siteLinks.dogblog.url} />
-            <DogBlog />
           </Route>
-
-          <Route path={siteLinks.dogblog.url}>
-            <DogBlog />
-          </Route>
-
-          <Route path={siteLinks.plantpurchase.url}>
-            <PlantPurchase />
-          </Route>
-
-          <Route path={siteLinks.foodbook.url}>
-            <FoodBook />
-          </Route>
-
-          <Route path={siteLinks.dogtrain.url}>
-            <DogTrain />
-          </Route>
-        </Switch>
-      </div>
+          <Route path={siteLinks.dogblog.url} ><DogBlog /></Route>
+          <Route path={siteLinks.plantpurchase.url} > <PlantPurchase /></Route>
+          <Route path={siteLinks.foodbook.url} ><FoodBook /></Route>
+          <Route path={siteLinks.dogtrain.url} ><DogTrain /></Route>
+        </Switch >
+      </div >
     </Router >
   );
 }

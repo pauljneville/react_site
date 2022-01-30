@@ -3,7 +3,7 @@
 const Footer = () => {
     return (
         <div className="footer">
-            Website Hosted on Firebase LOL
+            <i>Website Hosted on Firebase LOL</i>
         </div>
     );
 }

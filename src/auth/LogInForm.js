@@ -37,7 +37,7 @@ const LogInForm = () => {
             // sign in with email and password
             try {
                 await auth.signInWithEmailAndPassword(email.value, password.value);
-                history.push(dogBlogLinks.home.url);
+                history.replace(dogBlogLinks.home.url);
             } catch (error) {
                 console.log('error: ' + error);
                 setEmailError(error.message);

@@ -1,28 +1,204 @@
-
-.dogblog {
-  font-family: "Open Sans";
-  grid-area: wrapper;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-areas:
-  "header"
-  "navbar"
-  "sidebar"
-  "content"
-  "footer";
-
-  grid-gap: 1em;
-  margin: 0 auto;
-  padding: 0 50px 0 50px;
+/* {
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr))
+  }
+.container-16x9 {
+  position: relative;
+  padding-top: 56.25%;
+}
+video {
+  width: 100%;
+  position:absolute;
+  top: 0;
+}
+//changes to
+video {
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+:root {
+  --text-color: rgb(255, 0, 0);
+}
+p {
+  --text-color: green;
+  color:var(--text-color);
 }
 
-canvas {
+.drop {
+  animation: dropIn 1s ease forwards;
+  animation-delay: calc(var(--order) * 100ms);
+}
+@keyframes dropIn {
+  from {transform: translateY(-500px);}
+  to {transform: translateY(0);}
+} */
+/* <i class="drop" style="--order: 1">🍿<i>
+<i class="drop" style="--order: 1">🌭<i>
+<i class="drop" style="--order: 1">🚅<i> */
+
+/* Numbered Headings */
+/* :root {
+  counter-reset: headingCount;
+}
+h1 {
+  counter-increment: headingCount;
+}
+h1::before {
+  content: counter(headings);
+} */
+/* Dropdown focus */
+/* .dropdown {
+  opacity: 0;
+  visibility: hidden;
+}
+button:focus-within .dropdown {
+  opacity: 1;
+  visibility: visible;
+} */
+
+* { margin: 0; padding: 0;}
+  
+.dogblog canvas {
   border: 1px dashed #000000;
 }
 
-iframe {
-  overflow: auto;
+.dogblog a {
+  color: #00f;
 }
+.dogblog button {
+  background-color: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.dogblog .header h1 {
+  font-size: clamp(3rem, 6vw, 4.3rem);
+  padding-left: 2rem;
+}
+.dogblog .header {
+  /* width: 100vw; */
+  margin: 0 auto;
+  max-width: 48rem;
+  height: clamp(9rem, 18vw, 13rem);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* align-items: flex-start; */
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.dogblog .top-logo {
+  display:flex;
+  background-color: #282c34;
+  border-radius: 20%;
+  width: clamp(3.2rem, 7vw, 5rem);
+  padding: 0.4rem;
+}
+.dogblog .top-logo img {
+  border-radius: 20%;
+  width: 100%;
+}
+
+
+.dogblog {
+  margin: 1.5rem 0;
+  padding: 0;
+  font-family: "Open Sans";
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column;
+  /* height: calc(100vh - 3.75rem); */
+  /* overflow-y: auto; */
+  /* border: 2px dashed black; */
+  background-color: #fff;
+}
+.main-middle-column {
+  background-color: #282c34;
+  margin: 0 auto;
+  /* height: 100%; */
+}
+
+/* links */
+.dogblog .navbar {
+  display: flex;
+  justify-content: center;
+}
+.dogblog .navbar .links {
+  display: flex;
+}
+
+.middle-column {
+  display: flex;
+  /* max-width: 48rem; */
+  /* background-color: #282c34; */
+  height: 100%;
+  flex-grow: 1;
+  /* display: flex; */
+  margin: 0 auto;
+}
+.row-grid-wrapper {
+  display: flex;
+  grid-template-columns: repeat(auto, minmax(32rem, 1fr));
+  grid-template-rows: auto;
+  column-gap: 1rem;
+  /* background-color: #282c34; */
+  flex-flow: wrap;
+  max-width: 60rem;
+  /* margin: 0 auto; */
+  /* height: calc(100vh); */
+  flex-grow: 1;
+  overflow: hidden;
+  /* border: 1px solid red; */
+}
+
+.dogblog .contents {
+  /* display: flex; */
+  width: clamp(26.0rem, 34vw, 26rem);
+  background-color: #fff;
+  min-height: 60vh;
+  flex-grow: 1;
+  /* padding-bottom: 2em; */
+}
+.dogblog .sidebar {
+  /* position: relative;
+  top: 0;
+  right: 0; */
+  flex-grow: 1;
+  /* width: clamp(10.0rem, 24vw, 16rem); */
+  /* width: 100%; */
+  background-color: #0055ff;
+  background-color: #282c34;
+  height: 100%;
+  min-height: 100%;
+}
+.dogblog .sidebar p {
+  color: white;
+  text-decoration: 'none';
+}
+.dogblog .sidebar img {
+  border-radius: 1rem;
+  width: clamp(6.0rem, 24vw, 16rem);
+  margin: 1.5em;
+}
+
+
+/* .dogblog .links h2 {
+  padding: 10px;
+  color: white;
+  text-align: center;
+}
+.dogblog .links h2:hover {
+  text-decoration: 'none';
+  color: white;
+  background-color: hsl(342, 87%, 58%);
+  border-radius: 8px;
+} */
+
 
 .dogblog .blog-list img {
   width: 50px;
@@ -48,135 +224,126 @@ iframe {
 .dogblog .header h2, .dogblog .navbar h2 {
   color: #383838;
 }
-.dogblog .navbar a {
-  margin-left: 16px;
+
+.dogblog .link-button {
+  display: flex;
+  justify-content: center;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: #000;
+  margin-right: 0.3em;
   text-decoration: none;
-  padding: 6px 6px 30px 6px;
+  padding: 0.5em 1em 2em 1em;
 }
-.dogblog .navbar a:hover {
+.dogblog .link-button-inv-button button {
+  background-color: #f1356d;
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  text-decoration: none;
+  height: 4em;
+  padding: 0.65em 1em 1.9em 1em;
+}
+.dogblog .link-button-inv {
+  background-color: #f1356d;
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  text-decoration: none;
+  height: 1.5em;
+  padding: 0.65em 1em 1.9em 1em;
+}
+.dogblog .link-button-inv-button button:active {
+  background-color: #f5739a;
+}
+.dogblog .link-button-inv:active {
+  background-color: #f5739a;
+}
+.dogblog .link-button:hover {
   color: white;
   background-color: hsl(342, 87%, 58%);
   border-radius: 8px;
 }
-.dogblog .navbar a:active {
+.dogblog .link-button:active {
   color: white;
   background-color: #f5739a;
   border-radius: 8px;
 }
 
-.dogblog .navbar .links {
+.row {
   display: flex;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0rem;
+  column-gap: 1em;
 }
 
 
-@media only screen and (min-width: 700px)  {
+
+
+.image-404 {
+  width: 256px;
+  height: 256px;
+  background-image: url("../assets/dogblog/dog-404-1.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  /* display: inline-block; */
+}
+.image-404:hover {
+  background-image: url("../assets/dogblog/dog-404-2.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+
+@media only screen and (min-width: 650px)  {
     .media-box {
       background-color: #A7EE70;
     }
-  .dogblog {
-    grid-template-columns: auto 280px;
-    grid-template-areas:
-    "header  header"
-    "navbar  navbar"
-    "content  sidebar"
-    "content  sidebar"
-    "footer  footer";
-  }
-  .dogblog .header {
-    border-bottom: none;
-  }
-  .dogblog .navbar .links {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 0rem;
-  }
-
+    /* .dogblog .header {
+      width: 80vw;
+    } */
+    .dogblog .sidebar {
+      height: 100%;
+      min-height: 100vh;
+    }
 }
 @media only screen and (min-width: 800px)   {
     .media-box {
       background-color: #70e6ee;
     }
-
-  .dogblog {
-    grid-gap: 20px;
-    grid-template-columns: auto auto 280px;
-    grid-template-areas:
-    "header  navbar  navbar"
-    "content  content  sidebar"
-    "content  content  sidebar"
-    "footer  footer  footer";
-    max-width: 800px;
-  }
-  .dogblog .navbar .links {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 0rem;
-  }
-  .dogblog .header{
-    display: flex;
-    align-items: center;
-    justify-content:space-between;
-    width: 100%;
-    padding: 20px 0 20px 0px;
-    border-bottom: 1px solid #b6b6b6;
-  }
-  
 }
 
-.dogblog .link-button {
-  display: flex;
-  justify-content: center;
+button.cancel {
+  width: 2.0em;
+  height: 2.0em;
+  background-image: url("../assets/dogblog/cancel-cross.png");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.dogblog .header {
-  grid-area: header;
-  display: flex;
-  align-items: center;
-  justify-content:space-between;
-  width: 100%;
-  padding: 20px 0 20px 0px;
-}
-.dogblog .navbar {
-  grid-area: navbar;
-  display: flex;
-  align-items: center;
-  justify-content:space-between;
-  width: 100%;
-  padding: 20px 0 20px 0px;
-  border-bottom: 1px solid #b6b6b6;
-}
-.dogblog .contents {
-  grid-area: content;
-  padding-top: 10px;
-}
-.dogblog .sidebar {
-  grid-area: sidebar;
-  background-color: #282c34;
-  padding: 20px;
-  
-}
+
 .dogblog .footer {
-  grid-area: footer;
+  position:fixed;
+  bottom: 0;
+  left: 0;
   background-color: #282c34;
   color: white;
-  height: 50px;
-  padding: 30px 50px 0 50px;
+  height: 2em;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.dogblog .footer-margin {
+  height: 0.5rem;
 }
 
-.dogblog .sidebar p {
-  color: white;
-  text-decoration: 'none';
-}
-.dogblog .sidebar img {
-  border-radius: 40px;
-  max-width: 280px;
-  max-height: 280px;
-}
 .dogblog .blog-list {
-  /* padding: 20px 0px 0px 0px; */
-  
   display:flex;
   flex-direction: column;
   align-items: flex-start;
@@ -184,25 +351,13 @@ iframe {
 
 
 
-
-.dogblog textarea {
-  resize: none;
-  max-width: 400px;
-}
-
-
 .dogblog .profile img {
   width: 200px;
   height: 200px;
 }
-
-.dogblog button {
-    background: #f1356d;
-    color: #fff;
-    border: 0;
-    padding: 8px;
-    border-radius: 8px;
-    cursor: pointer;
+.dogblog textarea {
+  resize: none;
+  max-width: 400px;
 }
 
 .dogblog .log-in-form {
@@ -242,14 +397,6 @@ iframe {
 .dogblog .create textarea {
   height: 100px;
 }
-.dogblog .create button {
-  background: #f1356d;
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
-}
 .dogblog .create select {
   font-size: 26px;
 }
@@ -268,14 +415,6 @@ iframe {
 }
 .dogblog .blog-details div {
   margin: 20px 0;
-}
-.dogblog .blog-details button {
-  background: #f1356d;
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
 }
 
 /* blog-preview */
@@ -302,25 +441,7 @@ iframe {
     color: #f1356d;
   }
 
-/* links */
-.dogblog .links h2 {
-  background: #f1356d;
-  color: #fff;
-  border: 0;
-  padding: 10px;
-  border-radius: 8px;
-  cursor:pointer;
-}
-.dogblog .links h2 {
-  color: white;
-  text-align: center;
-}
-.dogblog .links h2:hover {
-  text-decoration: 'none';
-  color: white;
-  background-color: hsl(342, 87%, 58%);
-  border-radius: 8px;
-}
+
 
 
 /* auth-form */

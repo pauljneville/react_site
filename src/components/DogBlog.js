@@ -4,7 +4,6 @@ import Header from './Header';
 import Contents from './Contents';
 import Footer from './Footer';
 import Sidebar from './Sidebar';
-import NavBar from './DogBlogNavbar';
 
 import { Helmet } from 'react-helmet';
 
@@ -23,16 +22,23 @@ const DogBlog = () => {
     };
 
     return (
-
         <div className="dogblog">
             <Helmeted />
-            <Header />
-            <NavBar />
-            <Contents />
-            <Sidebar />
+            {/* <div className="main-middle-column"> */}
+            <div className="top-center">
+                <Header />
+            </div>
+            <div className="middle-column">
+                <div className="row-grid-wrapper">
+                    <Contents />
+                    <Sidebar />
+                </div >
+            </div>
             <Footer />
-        </div>
+            <div className="footer-margin"></div>
+            {/* </div> */}
 
+        </div>
     );
 }
 

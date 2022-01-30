@@ -36,7 +36,6 @@ const FoodBook = () => {
                     <div>
                         <h1>Food Book</h1>
                         <p>centercenter</p>
-
                     </div>
                 </div>
             </div>
@@ -45,17 +44,13 @@ const FoodBook = () => {
                     <div>
                         <h3>Hungry Fella?</h3>
                         <p>startend</p>
-
                     </div>
                 </div>
             </div>
             <div className="section">
                 <div className="centerend">
-                    <div>
-                        <p>section</p>
-                        <p>centerend</p>
-
-                    </div>
+                    <p>section</p>
+                    <p>centerend</p>
                 </div>
             </div>
             <div className="aside">
@@ -63,7 +58,6 @@ const FoodBook = () => {
                     <div>
                         <p>aside</p>
                         <p>centerstart</p>
-
                     </div>
                 </div>
             </div>
@@ -72,7 +66,6 @@ const FoodBook = () => {
                     <div>
                         <p>nav</p>
                         <p>startstart</p>
-
                     </div>
                 </div>
             </div>

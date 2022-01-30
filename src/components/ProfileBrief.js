@@ -8,7 +8,6 @@ const ProfileBrief = (props) => {
                 <img src={data.photoUrl} alt="profile" />
             </div>
 
-
             <h2>{data.name}</h2>
             <h3>{data.subtitle}</h3>
             <p>"{data.description}"</p>

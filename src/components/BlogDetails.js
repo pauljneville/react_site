@@ -1,6 +1,4 @@
-import { useParams } from "react-router";
-// import useFetch from "./useFetch";
-
+import { Redirect, useParams } from "react-router-dom";
 
 import { db } from '../firebase.config';
 import { useEffect, useState } from 'react';
@@ -9,32 +7,32 @@ import { Link } from "react-router-dom";
 import { dogBlogLinks } from "../constants/url-constants";
 
 const BlogDetails = () => {
-    const { id } = useParams();
-    // const { data: blog, error, isPending } = useFetch('http://localhost:8000/blogs/' + id);
-
+    const params = useParams();
     const [error, setError] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [blog, setBlog] = useState(null);
 
-
     useEffect(() => {
         const fetchBlogs = async () => {
-            const blog = await getDoc(doc(db, 'blogs', id));
-            if (blog.data()) {
-                setBlog({ id: blog.id, data: blog.data() });
-            } else {
-                setError("Server error. Sorryy 😬🖕🏻");
+            console.log(params.id);
+            try {
+                const blog = await getDoc(doc(db, 'blogs', params.id));
+                console.log("blog: " + blog);
+                if (blog.data()) {
+                    setBlog({ id: blog.id, data: blog.data() });
+                } else {
+                    setError("Server error. Sorryy 😬");
+                }
+                setIsPending(false);
+            } catch {
+                setIsPending(false);
+                <Redirect to="/dogblog/NOT FOUND" />
             }
-            setIsPending(false);
         }
-
         fetchBlogs();
-    }, [id]);
-
-
+    }, [params]);
 
     return (
-
         <div className="content">
             <div className="blog-details">
                 {isPending && <div>Loading...</div>}
