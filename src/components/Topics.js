@@ -5,6 +5,12 @@ import { collection, getDocs, query, limit } from 'firebase/firestore/lite';
 import FriendList from './FriendList';
 
 
+import { Helmet } from 'react-helmet-async';
+import Header from './Header';
+import Footer from './Footer';
+import Sidebar from './Sidebar';
+
+
 const Topics = () => {
 
   const [error, setError] = useState(null);
@@ -30,17 +36,46 @@ const Topics = () => {
   }
 
 
+  const Helmeted = () => {
+    return (
+      <Helmet>
+        <title>Topics | Lali's Dog Blog</title>
+        <link rel="icon" href="../assets/dogblog/lalicon.ico" />
+        <meta property="og:title" name="title" content="Lali's Dog Blog" />
+        <meta property="og:description" name="description" content="Lali blog of recent activities" />
+        <meta property="og:url" name="canonical" content="%PUBLIC_URL%/dogblog" />
+        <meta property="og:image" name="image" content="../assets/dogblog/lali_bg.jpg" />
+      </Helmet>
+    )
+  };
 
 
   return (
-    <div className="content">
-      <h2>Lali Friends</h2>
+    <div className="dogblog">
+      <Helmeted />
+      {/* <div className="main-middle-column"> */}
+      <div className="top-center">
+        <Header />
+      </div>
+      <div className="middle-column">
+        <div className="row-grid-wrapper">
+          <div className="content">
+            <h2>Lali Friends</h2>
 
-      {error && <div>{error}</div>}
-      {isPending && <div>Loading...</div>}
-      {friends && friends.length > 0 && <FriendList friends={friends} title="Lali Friends" listId="FT" />}
+            {error && <div>{error}</div>}
+            {isPending && <div>Loading...</div>}
+            {friends && friends.length > 0 && <FriendList friends={friends} title="Lali Friends" listId="FT" />}
+          </div>
+          <Sidebar />
+        </div >
+      </div>
+      <Footer />
+      <div className="footer-margin"></div>
+      {/* </div> */}
+
     </div>
   );
+
 }
 
 export default Topics;

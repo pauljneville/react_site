@@ -156,7 +156,7 @@ button:focus-within .dropdown {
   /* border: 1px solid red; */
 }
 
-.dogblog .contents {
+.dogblog .content {
   /* display: flex; */
   width: clamp(26.0rem, 34vw, 26rem);
   background-color: #fff;
@@ -321,7 +321,14 @@ button:focus-within .dropdown {
 button.cancel {
   width: 2.0em;
   height: 2.0em;
-  background-image: url("../assets/dogblog/cancel-cross.png");
+  background-image: url("../assets/dogblog/cancel-cross.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+button.edit {
+  width: 2.0em;
+  height: 2.0em;
+  background-image: url("../assets/dogblog/edit-pencil.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -356,8 +363,9 @@ button.cancel {
   height: 200px;
 }
 .dogblog textarea {
-  resize: none;
-  max-width: 400px;
+  resize: vertical;
+  min-width: 100%;
+  min-height: 10em;
 }
 
 .dogblog .log-in-form {

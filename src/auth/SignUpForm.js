@@ -8,8 +8,26 @@ import { useInput } from '../hooks/useInput';
 // import { useToggleSwitch } from '../hooks/useToggleSwitch';
 import { dogBlogLinks } from '../constants/url-constants';
 
+import { Helmet } from 'react-helmet-async';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Sidebar from '../components/Sidebar';
+
 
 const SignUpForm = () => {
+    const Helmeted = () => {
+        return (
+            <Helmet>
+                <title>Signup | Lali's Dog Blog</title>
+                <link rel="icon" href="../assets/dogblog/lalicon.ico" />
+                <meta property="og:title" name="title" content="Lali's Dog Blog" />
+                <meta property="og:description" name="description" content="Lali blog of recent activities" />
+                <meta property="og:url" name="canonical" content="%PUBLIC_URL%/dogblog" />
+                <meta property="og:image" name="image" content="../assets/dogblog/lali_bg.jpg" />
+            </Helmet>
+        )
+    };
+
     const email = useInput('');
     const password = useInput('');
     const displayName = useInput('');
@@ -68,50 +86,68 @@ const SignUpForm = () => {
     }
 
     return (
-        <div className="auth-form">
-            {emailSent && <h2>✔️ Verify your login!</h2>}
-            {emailSent && <h3>✉️ Check your email junk folder ⚠️</h3>}
+        <div className="dogblog">
+            <Helmeted />
+            {/* <div className="main-middle-column"> */}
+            <div className="top-center">
+                <Header />
+            </div>
+            <div className="middle-column">
+                <div className="row-grid-wrapper">
+                    <div className="content">
+                        <div className="auth-form">
+                            {emailSent && <h2>✔️ Verify your login!</h2>}
+                            {emailSent && <h3>✉️ Check your email junk folder ⚠️</h3>}
 
 
-            {!emailSent && <h2>Sign Up</h2>}
-            {!emailSent && <form onSubmit={onSubmit}>
-                <label className="switch">
-                    <input type="checkbox" checked={isGithub} onChange={onGithubSwitch} />
-                    Use Github
-                </label>
-                <label className="switch">
-                    <input type="checkbox" checked={isEmailLink} onChange={onEmailLinkSwitch} />
-                    Use Email link
-                </label>
+                            {!emailSent && <h2>Sign Up</h2>}
+                            {!emailSent && <form onSubmit={onSubmit}>
+                                <label className="switch">
+                                    <input type="checkbox" checked={isGithub} onChange={onGithubSwitch} />
+                                    Use Github
+                                </label>
+                                <label className="switch">
+                                    <input type="checkbox" checked={isEmailLink} onChange={onEmailLinkSwitch} />
+                                    Use Email link
+                                </label>
 
-                {!isGithub && <label>Display Name</label>}
-                {!isGithub && <input
-                    type="text"
-                    required
-                    name="displayName"
-                    placeholder="Display Name"
-                    {...displayName}
-                />}
-                <label>Email</label>
-                <input
-                    type="text"
-                    required
-                    name="email"
-                    placeholder="Email"
-                    {...email}
-                    error={emailError}
-                />
-                {<label>Password</label>}
-                {<input
-                    type="text"
-                    required
-                    name="password"
-                    placeholder="Password"
-                    {...password}
-                />}
-                {!auth.isAuthenticating && <button type="submit">Submit</button>}
-                {auth.isAuthenticating && <button type="submit" disabled="true">Loading...</button>}
-            </form>}
+                                {!isGithub && <label>Display Name</label>}
+                                {!isGithub && <input
+                                    type="text"
+                                    required
+                                    name="displayName"
+                                    placeholder="Display Name"
+                                    {...displayName}
+                                />}
+                                <label>Email</label>
+                                <input
+                                    type="text"
+                                    required
+                                    name="email"
+                                    placeholder="Email"
+                                    {...email}
+                                    error={emailError}
+                                />
+                                {<label>Password</label>}
+                                {<input
+                                    type="text"
+                                    required
+                                    name="password"
+                                    placeholder="Password"
+                                    {...password}
+                                />}
+                                {!auth.isAuthenticating && <button type="submit">Submit</button>}
+                                {auth.isAuthenticating && <button type="submit" disabled="true">Loading...</button>}
+                            </form>}
+                        </div>
+                    </div>
+                    <Sidebar />
+                </div >
+            </div>
+            <Footer />
+            <div className="footer-margin"></div>
+            {/* </div> */}
+
         </div>
     );
 }

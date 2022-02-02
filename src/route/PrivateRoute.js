@@ -8,7 +8,7 @@ const PrivateRoute = ({ children, ...rest }) => {
 
     return (
         <Route {...rest}
-            render={() => (user ? children : <Redirect to={dogBlogLinks.login.url} />)}>
+            render={() => user ? children : <Redirect to={dogBlogLinks.login.url} />}>
         </Route>
     );
 }

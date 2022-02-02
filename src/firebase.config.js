@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore/lite';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { getFunctions } from "firebase/functions";
 
 
 const firebaseConfig = {
@@ -26,4 +27,6 @@ const storageRef = (theStoreage, url) => {
     return ref(theStoreage, url)
 };
 
-export { db, app, storage, storageRef, uploadBytesResumable, getDownloadURL };
+const functions = getFunctions(app);
+
+export { db, app, storage, functions, storageRef, uploadBytesResumable, getDownloadURL };

@@ -131,7 +131,6 @@ export const AuthProvider = ({ children }) => {
     /// latest auth object
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, user => {
-
             if (user) {
                 setUser(user);
                 setIsAuthenticating(false);

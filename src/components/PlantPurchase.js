@@ -7,7 +7,8 @@ import React from "react";
 import Footer from './Footer';
 // import Sidebar from './Sidebar';
 // import NavBar from './NavBar';
-import { Helmet } from 'react-helmet';
+
+import { Helmet } from 'react-helmet-async';
 
 const PlantPurchase = () => {
     const Helmeted = () => {

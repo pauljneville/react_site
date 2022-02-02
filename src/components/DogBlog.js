@@ -1,43 +1,66 @@
 
-import React from "react";
-import Header from './Header';
-import Contents from './Contents';
-import Footer from './Footer';
-import Sidebar from './Sidebar';
+import {
+    Switch,
+    Route,
+} from "react-router-dom";
 
-import { Helmet } from 'react-helmet';
+
+import Home from './Home';
+import Topics from './Topics';
+import About from './About';
+import BlogDetails from "./BlogDetails";
+import PrivateRoute from "../route/PrivateRoute";
+import LoginRoute from "../route/LoginRoute";
+import LogInForm from "../auth/LogInForm";
+import ConfirmForm from "../auth/ConfirmForm";
+import SignUpForm from "../auth/SignUpForm";
+import Profile from "./Profile";
+import NotFound from "./NotFound";
+import { dogBlogLinks } from "../constants/url-constants";
+
 
 const DogBlog = () => {
-    const Helmeted = () => {
-        return (
-            <Helmet>
-                <title>Lali's Dog Blog</title>
-                <link rel="icon" href="../assets/dogblog/lalicon.ico" />
-                <meta property="og:title" name="title" content="Lali's Dog Blog" />
-                <meta property="og:description" name="description" content="Lali blog of recent activities" />
-                <meta property="og:url" name="canonical" content="https://paulneville.com.au/dogblog" />
-                <meta property="og:image" name="image" content="../assets/dogblog/lali_bg.jpg" />
-            </Helmet>
-        )
-    };
 
     return (
-        <div className="dogblog">
-            <Helmeted />
-            {/* <div className="main-middle-column"> */}
-            <div className="top-center">
-                <Header />
-            </div>
-            <div className="middle-column">
-                <div className="row-grid-wrapper">
-                    <Contents />
-                    <Sidebar />
-                </div >
-            </div>
-            <Footer />
-            <div className="footer-margin"></div>
-            {/* </div> */}
-
+        <div className="contents">
+            <Switch>
+                <LoginRoute exact path={dogBlogLinks.login.url}>
+                    <LogInForm />
+                </LoginRoute>
+                <PrivateRoute exact path={dogBlogLinks.details.url}><BlogDetails /></PrivateRoute>
+                <PrivateRoute exact path={dogBlogLinks.home.url}><Home /></PrivateRoute>
+                <PrivateRoute exact path={dogBlogLinks.profile.url}><Profile /></PrivateRoute>
+                <PrivateRoute exact path={dogBlogLinks.topics.url}><Topics /></PrivateRoute>
+                <LoginRoute exact path={dogBlogLinks.signup.url}>
+                    <SignUpForm />
+                </LoginRoute>
+                <LoginRoute exact path={dogBlogLinks.confirm.url}>
+                    <ConfirmForm />
+                </LoginRoute>
+                <Route exact path={dogBlogLinks.about.url}>
+                    <About />
+                </Route>
+                <Route path="*"><NotFound /></Route>
+            </Switch>
+            {/* <Switch>
+                <Route exact path={dogBlogLinks.login.url}>
+                    <LogInForm />
+                </Route>
+                <Route exact path={dogBlogLinks.details.url}><BlogDetails /></Route>
+                <Route exact path={dogBlogLinks.home.url}><Home /></Route>
+                <Route exact path={dogBlogLinks.profile.url}><Profile /></Route>
+                <Route exact path={dogBlogLinks.topics.url}><Topics /></Route>
+                <Route exact path={dogBlogLinks.signup.url}>
+                    <SignUpForm />
+                </Route>
+                <Route exact path={dogBlogLinks.confirm.url}>
+                    <ConfirmForm />
+                </Route>
+                <Route exact path={dogBlogLinks.about.url}>
+                    <About />
+                </Route>
+                <Route path="*"><NotFound /></Route>
+            </Switch> */}
         </div>
     );
 }

@@ -1,7 +1,8 @@
 import React from "react";
 import { ReactComponent as ChevronSVG } from "../../assets/dogtrain/chevron_arch.svg";
 
-import { Helmet } from 'react-helmet';
+
+import { Helmet } from 'react-helmet-async';
 import facebookLogo from "../../assets/facebook-logo.png";
 import instagramLogo from "../../assets/instagram-logo.png";
 

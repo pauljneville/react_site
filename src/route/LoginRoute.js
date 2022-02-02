@@ -8,7 +8,7 @@ const LoginRoute = ({ children, ...rest }) => {
 
     return (
         <Route {...rest}
-            render={() => (user ? <Redirect to={dogBlogLinks.home.url} /> : children)}>
+            render={() => user ? <Redirect to={dogBlogLinks.home.url} /> : children}>
         </Route>
     );
 }

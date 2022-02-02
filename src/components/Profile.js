@@ -4,6 +4,12 @@ import { useAuth } from '../hooks/useAuth';
 import { storage, storageRef, uploadBytesResumable, getDownloadURL } from '../firebase.config';
 import dogProfile from '../assets/dog-profile.PNG';
 
+
+import { Helmet } from 'react-helmet-async';
+import Header from './Header';
+import Footer from './Footer';
+import Sidebar from './Sidebar';
+
 const Profile = () => {
     const auth = useAuth();
 
@@ -17,6 +23,20 @@ const Profile = () => {
     var canvasElement;
     var canvasContext;
 
+
+    const Helmeted = () => {
+        return (
+            <Helmet>
+                <title>Profile | Lali's Dog Blog</title>
+                <link rel="icon" href="../assets/dogblog/lalicon.ico" />
+                <meta property="og:title" name="title" content="Lali's Dog Blog" />
+                <meta property="og:description" name="description" content="Lali blog of recent activities" />
+                <meta property="og:url" name="canonical" content="%PUBLIC_URL%/dogblog" />
+                <meta property="og:image" name="image" content="../assets/dogblog/lali_bg.jpg" />
+            </Helmet>
+        )
+    };
+
     useEffect(
         () => {
             setUrl(auth.user.photoURL);
@@ -29,7 +49,7 @@ const Profile = () => {
             canvasImage.onload = function () {
                 console.log('canvasImage is loading');
                 // context.drawImage(img, 0, 0, 200, 150);
-                var MAX_WIDTH = 237;
+                var MAX_WIDTH = 137;
                 var MAX_HEIGHT = 237;
                 var width = canvasImage.width;
                 var height = canvasImage.height;
@@ -71,7 +91,7 @@ const Profile = () => {
         img.onload = function () {
             // context.drawImage(img, 0, 0, 200, 150);
 
-            var MAX_WIDTH = 237;
+            var MAX_WIDTH = 137;
             var MAX_HEIGHT = 237;
             var width = img.width;
             var height = img.height;
@@ -218,25 +238,42 @@ const Profile = () => {
     //     </div>
 
     return (
-        <div className="content">
-            <h2>Your Lali Profile</h2>
-            <div className="auth-form profile">
-                <img src={url} alt="Profile" onError={reloadSrc} />
-                <img src={resizedUrl} alt="Resized" onError={reloadSrc} />
-                <h3>Name: {auth.user.displayName}</h3>
-                <h3>Email: {auth.user.email}</h3>
-
-                <canvas key={localUrl} id="imgCanvas" height="200" width="150" />
-
-                <form onSubmit={handleFirebaseUpload}>
-                    <input key={url} type="file" onChange={handleImageAsFile} />
-                    <button disabled={!file}>upload to firebase</button>
-                </form>
-                {url !== '' && <p>🥦</p>}
+        <div className="dogblog">
+            <Helmeted />
+            {/* <div className="main-middle-column"> */}
+            <div className="top-center">
+                <Header />
             </div>
-            {/* <Drop /> */}
+            <div className="middle-column">
+                <div className="row-grid-wrapper">
+                    <div className="content">
+                        <h2>Your Lali Profile</h2>
+                        <div className="auth-form profile">
+                            <img src={url} alt="Profile" onError={reloadSrc} />
+                            <img src={resizedUrl} alt="Resized" onError={reloadSrc} />
+                            <h3>Name: {auth.user.displayName}</h3>
+                            <h3>Email: {auth.user.email}</h3>
+
+                            <canvas key={localUrl} id="imgCanvas" height="200" width="150" />
+
+                            <form onSubmit={handleFirebaseUpload}>
+                                <input key={url} type="file" onChange={handleImageAsFile} />
+                                <button disabled={!file}>upload to firebase</button>
+                            </form>
+                            {url !== '' && <p>🥦</p>}
+                        </div>
+                        {/* <Drop /> */}
+                    </div>
+                    <Sidebar />
+                </div >
+            </div>
+            <Footer />
+            <div className="footer-margin"></div>
+            {/* </div> */}
+
         </div>
     );
+
 }
 
 export default Profile;
