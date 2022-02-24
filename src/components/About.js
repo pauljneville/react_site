@@ -21,29 +21,49 @@ const About = () => {
     )
   };
 
-  const [hdata, setHdata] = useState(null);
-  const [hsanitizedMessage, setHsanitizedMessage] = useState('');
-  const [hcode, setHcode] = useState(null);
-  const [hmessage, setHmessage] = useState('');
-  const [hdetails, setHdetails] = useState('');
-  const getBearer = httpsCallable(functions, 'timetapLocation');
+  const getLocationData = httpsCallable(functions, 'locationData');
+  const resetBearer = httpsCallable(functions, 'bearer');
 
-  const handleCaller = () => {
-    getBearer()
+  const [locationData, setLocationData] = useState(null);
+  const [locationStatus, setLocationStatus] = useState('');
+  const [locationCode, setLocationCode] = useState(null);
+  const [locationMessage, setLocationMessage] = useState('');
+  const [locationDetails, setLocationDetails] = useState('');
+
+  const [bearerData, setBearerData] = useState(null);
+  const [bearerStatus, setBearerStatus] = useState('');
+  const [bearerCode, setBearerCode] = useState(null);
+  const [bearerMessage, setBearerMessage] = useState('');
+  const [bearerDetails, setBearerDetails] = useState('');
+
+  const requestNewBearer = () => {
+    resetBearer()
       .then((result) => {
-        console.log(result);
-        const data = result.data;
-        const sanitizedMessage = data.text;
-        setHdata(data);
-        setHsanitizedMessage(sanitizedMessage);
+        setBearerData(result.data);
+        setBearerStatus(result.status);
       })
       .catch((error) => {
-        const code = error.code;
-        const message = error.message;
-        const details = error.details;
-        setHcode(code);
-        setHmessage(message);
-        setHdetails(details);
+        setBearerStatus(error.status);
+        setBearerCode(error.code);
+        setBearerMessage(error.message);
+        setBearerDetails("error on resetBearer call");
+      });
+  };
+
+  const handleCaller = () => {
+    getLocationData()
+      .then((result) => {
+        // Success
+        setLocationData(result.data);
+        setLocationStatus(result.status);
+      })
+      .catch((error) => {
+        // unauthorized, old bearer code
+        // force log out then log in again
+        setLocationStatus(error.status);
+        setLocationCode(error.code);
+        setLocationMessage(error.message);
+        setLocationDetails("error on first userTester call");
       });
   }
 
@@ -72,14 +92,23 @@ const About = () => {
 
             <button onClick={(e) => handleClick(title, e)}>Best Friend</button>
             <button onClick={(e) => handleCaller()}>Cloud Fun</button>
+            <button onClick={(e) => requestNewBearer()}>Reset Bearer</button>
 
-            <h3 style={{ color: "#0000ff" }}>Response</h3>
-            <p>data: {hdata}</p>
-            <p>sanitizedMessage: {hsanitizedMessage}</p>
-            <h3 style={{ color: "#0000ff" }}>Error</h3>
-            <p>code: {hcode}</p>
-            <p>message: {hmessage}</p>
-            <p>details: {hdetails}</p>
+            <h3 style={{ color: "#0000ff" }}>Location Response</h3>
+            <p>data: {locationData}</p>
+            <p>status: {locationStatus}</p>
+            <h3 style={{ color: "#0000ff" }}>Location Error</h3>
+            <p>code: {locationCode}</p>
+            <p>message: {locationMessage}</p>
+            <p>details: {locationDetails}</p>
+
+            <h3 style={{ color: "#0000ff" }}>Bearer Response</h3>
+            <p>data: {bearerData}</p>
+            <p>status: {bearerStatus}</p>
+            <h3 style={{ color: "#0000ff" }}>Bearer Error</h3>
+            <p>code: {bearerCode}</p>
+            <p>message: {bearerMessage}</p>
+            <p>details: {bearerDetails}</p>
 
           </div>
           <Sidebar />
@@ -95,3 +124,41 @@ const About = () => {
 }
 
 export default About;
+
+// exports.helloWorld = function helloWorld(req, res) {
+    //     res.set('Access-Control-Allow-Origin', "*")
+    //     res.set('Access-Control-Allow-Methods', 'GET, POST');
+
+    //     if (req.method === "OPTIONS") {
+    //       // stop preflight requests here
+    //       res.status(204).send('');
+    //       return;
+    //     }
+
+    //     // handle full requests
+    //     res.status(200).send('weeee!);
+    //   };
+
+/**
+* HTTP function that supports CORS requests.
+*
+* @param {Object} req Cloud Function request context.
+* @param {Object} res Cloud Function response context.
+*/
+/*exports.corsEnabledFunction = (req, res) => {
+    // Set CORS headers for preflight requests
+    // Allows GETs from any origin with the Content-Type header
+    // and caches preflight response for 3600s
+
+    res.set('Access-Control-Allow-Origin', '*');
+
+    if (req.method === 'OPTIONS') {
+        // Send response to OPTIONS requests
+        res.set('Access-Control-Allow-Methods', 'GET');
+        res.set('Access-Control-Allow-Headers', 'Content-Type');
+        res.set('Access-Control-Max-Age', '3600');
+        res.status(204).send('');
+    } else {
+        res.send('Hello World!');
+    }
+};*/

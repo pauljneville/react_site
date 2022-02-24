@@ -1,5 +1,5 @@
 const functions = require("firebase-functions");
-const express = require("express");
+// const express = require("express");
 const cors = require("cors");
 
 const axios = require('axios');
@@ -8,10 +8,10 @@ const crypto = require('crypto');
 const admin = require("firebase-admin");
 admin.initializeApp();
 
-const app = express();
+// const app = express();
 
 // Automatically allow cross-origin requests
-app.use(cors({ origin: true }));
+// app.use(cors({ origin: true }));
 // const cors = require('cors')({ origin: true });
 
 const bearerName = 'projects/porfolio-518b1/secrets/timetap-bearer';
@@ -65,7 +65,6 @@ async function accessBearer() {
         return "";
     }
     const payload = version.payload.data.toString();
-    functions.logger.info("bearer: " + payload);
     return payload;
 }
 /** Accesses the private key secret in GC secret manager */
@@ -82,50 +81,83 @@ async function accessPrivateKey() {
     return payload;
 }
 
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//     functions.logger.info("Hello logs!", { structuredData: true });
-//     response.send("Hello from Firebase!");
-// });
+// TODO instead of accessing bearer code from secrets
+// get encryption key from secrets, get bearer code from firestore
+// decrypt said bearer code from firestore and then made the request lol
+exports.locationData = functions.https.onRequest(async (req, res) => {
+    res.set('Access-Control-Allow-Origin', "https://paulneville.com.au");
+    res.set('Access-Control-Allow-Methods', 'GET');
+    res.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    const options = {
+        // allowedHeaders: 'Content-Type, Authorization',
+        // methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+        // origin: "https://paulneville.com.au",
+        // preflightContinue: true,
+        // optionsSuccessStatus: 200,
+    };
 
-/** Requests Kiama id 492002 location data from timetap API */
-app.get('/', async (req, res) => {
-    cors(req, res, async () => {
-        const bearer = await accessBearer();
-        functions.logger.info("here after bearer: " + bearer);
+    const bearer = await accessBearer();
+    functions.logger.info("here after bearer: " + bearer);
 
-        const config = {
-            headers: {
-                'Authorization': 'Bearer ' + bearer,
-            },
-        };
+    const config = {
+        headers: {
+            'Authorization': 'Bearer ' + bearer,
+        },
+    };
 
-        axios.get(
-            'https://api.timetap.com/live/locations/492002',
-            config,
-        )
-            .then(async (response) => {
-                functions.logger.info("1st response.status: " +
-                    response.status);
+    axios.get(
+        'https://api.timetap.com/live/locations/492002',
+        config,
+    )
+        .then(async (response) => {
+            functions.logger.info("1st response.status: " +
+                response.status);
 
-                try {
-                    functions.logger.info("stringify response: " +
-                        JSON.stringify(response.data, null, 2));
-                    res.status(200).send(JSON.stringify(response.data));
-                } catch (error) {
-                    functions.logger.info("error in stringify: " + error);
-                    res.status(500).send("JSON error");
-                }
-            })
-            .catch((error) => {
-                functions.logger.info("1st response.status: " +
-                    error.response.status);
-                res.status(401).send("Unauthorized 1st time");
+            try {
+                functions.logger.info("stringify response: " +
+                    JSON.stringify(response.data, null, 2));
+                cors(options)(req, res, () => {
+                    return res.status(200).json({
+                        status: 'ok',
+                        data: JSON.stringify(response.data),
+                    });
+                });
+                // res.status(200).send(JSON.stringify(response.data));
+            } catch (error) {
+                functions.logger.info("error in stringify: " + error);
+                cors(options)(req, res, () => {
+                    return res.status(500).json({
+                        status: 'json not ok',
+                        data: "JSON error",
+                    });
+                });
+                // res.status(500).send();
+            }
+        })
+        .catch((error) => {
+            functions.logger.info("1st response.status: " +
+                error.response.status);
+            cors(options)(req, res, () => {
+                return res.status(401).json({
+                    status: 'bearer expired',
+                    data: "Bearer Expired",
+                });
             });
-    });
+            // res.status(401).send();
+        });
 });
 
-/** Updates session token from timetap API */
-app.get('/bearer', async (req, res) => {
+exports.bearer = functions.https.onRequest(async (req, res) => {
+    res.set('Access-Control-Allow-Origin', "https://paulneville.com.au");
+    res.set('Access-Control-Allow-Methods', 'GET');
+    res.set("Access-Control-Allow-Headers", "Content-Type");
+    const options = {
+        // methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+        // origin: "https://paulneville.com.au",
+        // preflightContinue: true,
+        // optionsSuccessStatus: 200,
+    };
+
     const apiKey = await accessApiKey();
     const privateKey = await accessPrivateKey();
     functions.logger.info("apiKey: " + apiKey);
@@ -140,6 +172,7 @@ app.get('/bearer', async (req, res) => {
 
     axios.get(
         `https://api.timetap.com/live/sessionToken?apiKey=${apiKey}&timestamp=${timestamp}&signature=${hash}`,
+        // config,
     )
         .then((response) => {
             updateBearer(response.data.sessionToken);
@@ -151,13 +184,143 @@ app.get('/bearer', async (req, res) => {
             functions.logger.info("response: ",
                 { sessionToken: response.data.sessionToken },
             );
-            res.status(200).send(JSON.stringify(response.data));
+            cors(options)(req, res, () => {
+                return res.status(200).json({
+                    status: 'ok',
+                    data: 'Updated', // JSON.stringify(response.data),
+                });
+            });
+            // res.status(200).send(JSON.stringify(response.data));
         })
         .catch((error) => {
             functions.logger.info("axios.get bearer error: ");
-            res.status(401).send("Unauthorized 2nd time");
+            cors(options)(req, res, () => {
+                return res.status(401).json({
+                    status: 'auth not ok',
+                    data: "Unauthorized 2nd time",
+                });
+            });
+            // res.status(401).send("Unauthorized 2nd time");
         });
 });
+
+// exports.helloWorld = functions.https.onRequest((request, response) => {
+//     functions.logger.info("Hello logs!", { structuredData: true });
+//     response.send("Hello from Firebase!");
+// });
+
+/** Requests Kiama id 492002 location data from timetap API */
+// app.get('/location', async (req, res) => {
+//     res.set('Access-Control-Allow-Origin', "*");
+//     res.set('Access-Control-Allow-Methods', 'GET, POST');
+//     const options = {
+//         origin: 'https://paulneville.com.au',
+//     };
+
+
+//     const bearer = await accessBearer();
+//     functions.logger.info("here after bearer: " + bearer);
+
+//     const config = {
+//         headers: {
+//             'Authorization': 'Bearer ' + bearer,
+//         },
+//     };
+
+//     axios.get(
+//         'https://api.timetap.com/live/locations/492002',
+//         config,
+//     )
+//         .then(async (response) => {
+//             functions.logger.info("1st response.status: " +
+//                 response.status);
+
+//             try {
+//                 functions.logger.info("stringify response: " +
+//                     JSON.stringify(response.data, null, 2));
+//                 cors(options)(req, res, () => {
+//                     return res.json({
+//                         status: 200,
+//                         data: JSON.stringify(response.data),
+//                     });
+//                 });
+//                 // res.status(200).send(JSON.stringify(response.data));
+//             } catch (error) {
+//                 functions.logger.info("error in stringify: " + error);
+//                 cors(options)(req, res, () => {
+//                     return res.json({
+//                         status: 500,
+//                         data: "JSON error",
+//                     });
+//                 });
+//                 // res.status(500).send();
+//             }
+//         })
+//         .catch((error) => {
+//             functions.logger.info("1st response.status: " +
+//                 error.response.status);
+//             cors(options)(req, res, () => {
+//                 return res.json({
+//                     status: 401,
+//                     data: "Unauthorized 1st time",
+//                 });
+//             });
+//             // res.status(401).send();
+//         });
+// });
+
+/** Updates session token from timetap API */
+// app.get('/bearer', async (req, res) => {
+//     res.set('Access-Control-Allow-Origin', "*");
+//     res.set('Access-Control-Allow-Methods', 'GET, POST');
+//     const options = {
+//         origin: 'https://paulneville.com.au',
+//     };
+
+//     const apiKey = await accessApiKey();
+//     const privateKey = await accessPrivateKey();
+//     functions.logger.info("apiKey: " + apiKey);
+//     functions.logger.info("privateKey: " + privateKey);
+
+//     const hash = crypto.createHash('md5')
+//         .update(apiKey + privateKey)
+//         .digest('hex');
+//     const timestamp = Date.now();
+//     functions.logger.info("timestamp: " + timestamp);
+//     let bearer = "";
+
+//     axios.get(
+//         `https://api.timetap.com/live/sessionToken?apiKey=${apiKey}&timestamp=${timestamp}&signature=${hash}`,
+//     )
+//         .then((response) => {
+//             updateBearer(response.data.sessionToken);
+//             bearer = response.data.sessionToken;
+//             functions.logger.info("bearer: " + bearer);
+//             functions.logger.info("data: ",
+//                 { sessionToken: response },
+//             );
+//             functions.logger.info("response: ",
+//                 { sessionToken: response.data.sessionToken },
+//             );
+//             cors(options)(req, res, () => {
+//                 return res.json({
+//                     status: 200,
+//                     data: JSON.stringify(response.data),
+//                 });
+//             });
+//             // res.status(200).send(JSON.stringify(response.data));
+//         })
+//         .catch((error) => {
+//             functions.logger.info("axios.get bearer error: ");
+//             cors(options)(req, res, () => {
+//                 return res.json({
+//                     status: 401,
+//                     data: "Unauthorized 2nd time",
+//                 });
+//             });
+//             // res.status(401).send("Unauthorized 2nd time");
+//         });
+// });
 
 // app.post('/', async (req, res) => {
 //     const user = req.body;
@@ -177,72 +340,32 @@ app.get('/bearer', async (req, res) => {
 //             phrase: user.phrase,
 //             email: user.email,
 //         });
-
 //     res.status(201).send();
 // });
 
-exports.userTester = functions.https.onRequest(app);
 
-exports.timetapLocation = functions.https.onRequest((req, res) => {
-    // exports.helloWorld = function helloWorld(req, res) {  
-    //     res.set('Access-Control-Allow-Origin', "*")
-    //     res.set('Access-Control-Allow-Methods', 'GET, POST');
+// exports.timetapLocation = functions.https.onRequest(async (req, res) => {
+//     res.set('Access-Control-Allow-Origin', "*");
+//     res.set('Access-Control-Allow-Methods', 'GET, POST');
+//     // const original = req.query.text;
+//     // const writeResult = await admin.firestore().collection('messages')
+//     // .add({ original: original });
+//     const bearer = await accessBearer();
 
-    //     if (req.method === "OPTIONS") {
-    //       // stop preflight requests here
-    //       res.status(204).send('');
-    //       return;
-    //     }
-
-    //     // handle full requests
-    //     res.status(200).send('weeee!);
-    //   };
-
-    /**
- * HTTP function that supports CORS requests.
- *
- * @param {Object} req Cloud Function request context.
- * @param {Object} res Cloud Function response context.
- */
-    /*exports.corsEnabledFunction = (req, res) => {
-        // Set CORS headers for preflight requests
-        // Allows GETs from any origin with the Content-Type header
-        // and caches preflight response for 3600s
-
-        res.set('Access-Control-Allow-Origin', '*');
-
-        if (req.method === 'OPTIONS') {
-            // Send response to OPTIONS requests
-            res.set('Access-Control-Allow-Methods', 'GET');
-            res.set('Access-Control-Allow-Headers', 'Content-Type');
-            res.set('Access-Control-Max-Age', '3600');
-            res.status(204).send('');
-        } else {
-            res.send('Hello World!');
-        }
-    };*/
-
-    res.set('Access-Control-Allow-Origin', "*");
-    res.set('Access-Control-Allow-Methods', 'GET, POST');
-    // const original = req.query.text;
-    // const writeResult = await admin.firestore().collection('messages')
-    // .add({ original: original });
-    // const bearer = await accessBearer();
-
-    // res.status(200).send("I can't find them!");
-    // JSON.stringify(bearer));
-    // .json({ result: `Message with ID: ${original} added. ${bearer}` });
-    const options = {
-        origin: 'https://paulneville.com.au',
-    };
-    cors(options)(req, res, () => {
-        return res.json({ status: 'ok' });
-    });
-});
+//     // res.status(200).send("I can't find them!");
+//     // JSON.stringify(bearer));
+//     // .json({ result: `Message with ID: ${original} added. ${bearer}` });
+//     const options = {
+//         origin: 'https://paulneville.com.au',
+//         optionsSuccessStatus: 200,
+//     };
+//     cors(options)(req, res, () => {
+//         return res.status(200).json({ status: 'ok', data: bearer });
+//     });
+// });
 
 // exports.addMessage = functions.https.onRequest(async (req, res) => {
 //     res.set('Access-Control-Allow-Origin', '*');
-
 //     if (req.method === 'OPTIONS') {
 //         res.set('Access-Control-Allow-Methods', 'GET');
 //         res.set('Access-Control-Max-Age', '3600');

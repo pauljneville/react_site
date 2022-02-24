@@ -1,5 +1,6 @@
 
 export const siteLinks = {
+    portfolio: { url: "/", label: "Home" },
     dogblog: { url: "/dogblog", label: "Dog Blog" },
     plantpurchase: { url: "/plantpurchase", label: "Plant Purchase" },
     foodbook: { url: "/foodbook", label: "Food Book" },

@@ -106,7 +106,7 @@ button:focus-within .dropdown {
 
 
 .dogblog {
-  margin: 1.5rem 0;
+  margin: 1.5rem 0 0 0;
   padding: 0;
   font-family: "Open Sans";
   /* width: 100%; */
@@ -301,21 +301,15 @@ button:focus-within .dropdown {
 
 
 @media only screen and (min-width: 650px)  {
-    .media-box {
-      background-color: #A7EE70;
-    }
     /* .dogblog .header {
       width: 80vw;
     } */
     .dogblog .sidebar {
       height: 100%;
       min-height: 100vh;
-    }
+    } 
 }
 @media only screen and (min-width: 800px)   {
-    .media-box {
-      background-color: #70e6ee;
-    }
 }
 
 button.cancel {
@@ -335,9 +329,9 @@ button.edit {
 
 
 .dogblog .footer {
-  position:fixed;
-  bottom: 0;
-  left: 0;
+  /* position:fixed; */
+  /* bottom: 0; */
+  /* left: 0; */
   background-color: #282c34;
   color: white;
   height: 2em;
@@ -346,9 +340,9 @@ button.edit {
   justify-content: center;
   width: 100%;
 }
-.dogblog .footer-margin {
+/* .dogblog .footer-margin {
   height: 0.5rem;
-}
+} */
 
 .dogblog .blog-list {
   display:flex;

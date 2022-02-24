@@ -15,7 +15,12 @@ import Sidebar from './Sidebar';
 import EditBlogEntry from "./EditBlogEntry";
 
 import ReactMarkdown from "react-markdown";
-import gfm from 'remark-gfm'
+import gfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+// import rehypeKatex from 'rehype-katex';
+import rehypeMathjax from 'rehype-mathjax';
+// import remarkRehype from 'remark-rehype';
+// import { BlockMath, InlineMath } from 'react-katex';
 
 const BlogDetails = () => {
     const Helmeted = () => {
@@ -109,7 +114,14 @@ const BlogDetails = () => {
                                         : <button className="edit" onClick={() => setIsEditing(true)}></button>}
                                     {!isEditing ? <div><h2>{String.fromCodePoint(isNaN(emoji) ? "0x1F973" : emoji)} {title}</h2>
                                         <p>Written by {blog.data().author}</p>
-                                        <div><ReactMarkdown remarkPlugins={[gfm]}>{blogContents}</ReactMarkdown></div>
+                                        <div>
+                                            <ReactMarkdown
+                                                remarkPlugins={[gfm, remarkMath]}
+                                                rehypePlugins={[rehypeMathjax]}
+                                            >
+                                                {blogContents}
+                                            </ReactMarkdown>
+                                        </div>
                                     </div> : <div></div>}
                                 </article>
                             )}

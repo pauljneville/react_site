@@ -11,7 +11,6 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Sidebar from '../components/Sidebar';
 
-
 const LogInForm = () => {
     const Helmeted = () => {
         return (
@@ -70,6 +69,7 @@ const LogInForm = () => {
         setIsEmailLink(!isEmailLink);
         setIsGithub(false);
     }
+
 
     return (
         <div className="dogblog">

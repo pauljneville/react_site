@@ -37,9 +37,9 @@ const DogBlog = () => {
                 <LoginRoute exact path={dogBlogLinks.confirm.url}>
                     <ConfirmForm />
                 </LoginRoute>
-                <Route exact path={dogBlogLinks.about.url}>
+                <PrivateRoute exact path={dogBlogLinks.about.url}>
                     <About />
-                </Route>
+                </PrivateRoute>
                 <Route path="*"><NotFound /></Route>
             </Switch>
             {/* <Switch>
