@@ -1,10 +1,11 @@
-import { Column, Row, Header2, Chip } from "./StandardComponents";
+import { GridColumns, Column, Header2, Chip } from "./StandardComponents";
 
 export const ChipsCard = ({ title, chips }) => {
     return (
-        <Column gap='0.5rem'>
+        <Column>
             <Header2>{title}</Header2>
-            <Row gap="1rem">
+            <GridColumns>
+                {/* <Row gap="1rem"> */}
                 {chips.map((chip, index) => {
                     return (
                         <Chip key={index}
@@ -13,7 +14,8 @@ export const ChipsCard = ({ title, chips }) => {
                         />
                     );
                 })}
-            </Row>
+                {/* </Row> */}
+            </GridColumns>
         </Column>
     );
 }
