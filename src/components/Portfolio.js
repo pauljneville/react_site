@@ -7,7 +7,7 @@ import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper';
 
 import { PortfolioNavBar } from "./PortfolioNavBar";
 import { TitleCard } from "./TitleCard";
-import { SizedBox, Column, Row, Header1, ScrollRef, Fixed } from './StandardComponents';
+import { SizedBox, Column, Row, Header1, ScrollRef } from './StandardComponents';
 import { TextCard } from "./TextCard";
 import { ChipsCard } from './ChipsCard';
 import { ProjectCard } from './ProjectCard';
@@ -16,6 +16,13 @@ import { ExpansionCard } from './ExpansionCard';
 import { FeatureCard } from './FeatureCard';
 
 import cdtLogo from '../assets/portfolio/cdt-logo.png';
+import cdtWebsite from '../assets/portfolio/cdt-website.png';
+import cdtScheduler from '../assets/portfolio/cdt-scheduler.png';
+import cdtGraphicDesign from '../assets/portfolio/cdt-graphic-design.png';
+import cdtMockup from '../assets/portfolio/cdt-mockup.png';
+import cdtIPhone from '../assets/portfolio/cdt-iphone.png';
+import cdtDigitalProcesses from '../assets/portfolio/cdt-digital-processes.png';
+import cdtStaffTraining from '../assets/portfolio/cdt-staff-training.png';
 import supermarketShot from '../assets/portfolio/supermarket.png';
 
 export const Portfolio = () => {
@@ -39,7 +46,7 @@ export const Portfolio = () => {
         width: 60vw;
         min-width: 800px;
         height: calc(100vh - 1.2rem);
-        background-color: #efefef;
+        background-color: #fff;
     `;
 
     const skillsTitleRef = useRef(null);
@@ -99,8 +106,8 @@ export const Portfolio = () => {
                 Client information was recorded and filed on paper forms.`,
         features: [
             {
-                image: cdtLogo,
-                alt: "logo for chevron dog training",
+                image: cdtWebsite,
+                alt: "screenshot of chevron dog training website",
                 title: "Responsive Website",
                 detail: `Developed a website to create a desktop and mobile experience to clients 
                         seeking information about staff and services offered, schedule calls and 
@@ -108,7 +115,7 @@ export const Portfolio = () => {
                         Design elements created to provide consistent branding across platforms.`,
             },
             {
-                image: cdtLogo,
+                image: cdtScheduler,
                 alt: "logo for chevron dog training",
                 title: "Client Scheduling System",
                 detail: `Portal for clients to book online.
@@ -122,15 +129,7 @@ export const Portfolio = () => {
                         - theme consistency and icon design`,
             },
             {
-                image: cdtLogo,
-                alt: "logo for chevron dog training",
-                title: "Google Business",
-                detail: `Google Business profile created and optimised to 
-                        improve Google search result to drive customer awareness 
-                        and engagement and leave reviews.`,
-            },
-            {
-                image: cdtLogo,
+                image: cdtDigitalProcesses,
                 alt: "logo for chevron dog training",
                 title: "Digital Processes",
                 detail: `Client information and appointment details recorded on touch devices.
@@ -138,14 +137,14 @@ export const Portfolio = () => {
                         Data exported for use in aggragation, statistics, and marketing purposes.`,
             },
             {
-                image: cdtLogo,
+                image: cdtIPhone,
                 alt: "logo for chevron dog training",
                 title: "Google Play / iPhone App",
                 detail: `Education app to provide supplementary information to clients and 
                         to provide example audio content to demonstrate key behaviours.`,
             },
             {
-                image: cdtLogo,
+                image: cdtStaffTraining,
                 alt: "logo for chevron dog training",
                 title: "Staff Training Content",
                 detail: `Video content and documentation created to provide effective staff 
@@ -154,7 +153,7 @@ export const Portfolio = () => {
                         OBS, Carnac, Steps Recorder`,
             },
             {
-                image: cdtLogo,
+                image: cdtGraphicDesign,
                 alt: "logo for chevron dog training",
                 title: "Graphic Design",
                 detail: `Provided graphic design elements and iconography for use through 
@@ -162,7 +161,7 @@ export const Portfolio = () => {
                         consistent branding across various platforms.`,
             },
             {
-                image: cdtLogo,
+                image: cdtMockup,
                 alt: "logo for chevron dog training",
                 title: "Mockup",
                 detail: `User interface mockup created using Figma to demonstrate website 
@@ -186,13 +185,13 @@ export const Portfolio = () => {
         <Wrapper>
             <Helmeted />
             <PortfolioNavBar navItems={navItems} />
-            <Column alignItems='center' gap='2rem'>
+            <Column alignItems='center' justifyContent='center' gap='2rem'>
                 <TitleCard />
                 <SizedBox width='80%'>
                     <TextCard />
                 </SizedBox>
                 <Column justifyContent='space-around' alignItems='center' width='80%'>
-                    <Row alignItems="center">
+                    <Row justifyContent="center">
                         <ScrollRef ref={skillsTitleRef} />
                         <Header1>Skills</Header1>
                     </Row>
@@ -206,7 +205,7 @@ export const Portfolio = () => {
                     </Column>
                 </Column>
                 <Column justifyContent='space-around' alignItems='center' width='80%'>
-                    <Row alignItems="center">
+                    <Row justifyContent="center">
                         <ScrollRef ref={experienceTitleRef} />
                         <Header1>Campaigns / Projects</Header1>
                     </Row>
@@ -232,10 +231,10 @@ export const Portfolio = () => {
                 </Column>
                 <SizedBox height="500px" />
                 <Row justifyContent="center"
-                    backgroundColor="#000"
-                    color="#fff"
+                    backgroundColor="#fff"
+                    color="#000"
                 >
-                    Paul Neville
+                    Made with React
                 </Row>
             </Column>
         </Wrapper>
