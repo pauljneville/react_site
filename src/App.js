@@ -22,8 +22,9 @@ const globalStyle = css`
     --navbar-font-height: 1.4rem;
     --navbar-padding: 0.8rem;
     --navbar-height: 2.5rem;
-    --scroll-ref-offset: -5rem;
+    --scroll-ref-offset: -4rem;
     --body-max-width: 800px;
+    z-index: 0;
   }
 `;
 

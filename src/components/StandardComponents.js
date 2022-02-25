@@ -12,11 +12,12 @@ export const Row = styled.div`
     right: ${p => p.right};
     bottom: ${p => p.bottom};
     left: ${p => p.left};
+    padding: ${p => p.padding};
     background-color: ${p => p.backgroundColor};
     width: ${p => p.width ? p.width : '100%'};
     height: ${p => p.height};
     &>*{
-    color: ${p => p.color};
+        color: ${p => p.color};
     }
 `;
 export const Column = styled.div`
@@ -33,6 +34,10 @@ export const Column = styled.div`
     right: ${p => p.right}
     bottom: ${p => p.bottom}
     left: ${p => p.left}
+    background-color: ${p => p.backgroundColor};
+    &>*{
+        color: ${p => p.color};
+    }
 `;
 export const GridColumns = styled.div`
     display: grid;
@@ -89,6 +94,23 @@ export const Image = styled.img`
     border-radius: ${p => p.borderRadius};
     box-shadow: ${p => p.boxShadow};
     border: 1px solid #c5c5c5;
+    transition: all 0.5s ease-out;
+    background-color: white;
+`;
+export const HoverImage = styled.div`
+    &:hover {
+        z-index: 11;
+        img {
+            background-color: white;
+            position: relative;
+            width: calc(${p => p.width} * 2);
+            height: calc(${p => p.height} * 2);
+        }
+        .detail-card {
+            background-color: white;
+            opacity: 0;
+        }
+    }
 `;
 export const Header1 = styled.h1`
     padding: ${p => p.padding ? p.padding : '0px 0px'};
@@ -105,6 +127,17 @@ export const Header3 = styled.h3`
     font-size: ${p => p.textSize ? p.textSize : '1.2em'};
     font-weight: ${p => p.fontWeight ? p.fontWeight : '500'};
 `;
+export const LiftHover = styled.div`
+    box-shadow: 0px 0px 0px #777;
+    bottom: 0rem;
+    border-radius: 0%;
+    transition: all 0.5s ease-out;
+    &:hover {
+        box-shadow: 1px 1px 6px #ccc;
+        bottom: 0.25rem;
+        border-radius: 2%;
+    }
+`;
 
 export const Chip = ({ label, color }) => {
     return (
@@ -116,7 +149,9 @@ export const Chip = ({ label, color }) => {
                 borderRadius="40%"
                 marginTop="0.5em"
             />
-            <Header3>{label}</Header3>
+            <LiftHover>
+                <Header3>{label}</Header3>
+            </LiftHover>
         </Row>
     );
 }

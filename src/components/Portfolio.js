@@ -24,6 +24,7 @@ import cdtIPhone from '../assets/portfolio/cdt-iphone.png';
 import cdtDigitalProcesses from '../assets/portfolio/cdt-digital-processes.png';
 import cdtStaffTraining from '../assets/portfolio/cdt-staff-training.png';
 import supermarketShot from '../assets/portfolio/supermarket.png';
+import { Card } from './Card';
 
 export const Portfolio = () => {
     const Helmeted = () => {
@@ -50,9 +51,7 @@ export const Portfolio = () => {
     `;
 
     const skillsTitleRef = useRef(null);
-    const experienceTitleRef = useRef(null);
     const projectsTitleRef = useRef(null);
-    const educationTitleRef = useRef(null);
     const contactTitleRef = useRef(null);
     const navItems = [
         {
@@ -60,9 +59,7 @@ export const Portfolio = () => {
             ref: skillsTitleRef,
             content: <ChipsCard title='Languages / Frameworks' />
         },
-        { title: 'Experience', ref: experienceTitleRef, content: <SizedBox height="1000px" /> },
         { title: 'Projects', ref: projectsTitleRef, content: <SizedBox height="1000px" /> },
-        { title: 'Education', ref: educationTitleRef, content: <SizedBox height="1000px" /> },
         { title: 'Contact', ref: contactTitleRef, content: <SizedBox height="1000px" /> },
     ];
     const skillItems = [
@@ -97,7 +94,7 @@ export const Portfolio = () => {
     ];
     const cdt = {
         name: "Chevron Dog Training",
-        title: "Dog Training, Walking, Pet Sitting",
+        title: "Dog Training, Walking and Pet Sitting",
         image: cdtLogo,
         alt: "logo for chevron dog training",
         detail: `Chevron Dog Training was established 2 years ago; operating in the Illawarra area. 
@@ -156,7 +153,7 @@ export const Portfolio = () => {
                 image: cdtGraphicDesign,
                 alt: "logo for chevron dog training",
                 title: "Graphic Design",
-                detail: `Provided graphic design elements and iconography for use through 
+                detail: `Provided graphic design elements and iconography for use throughout 
                         the website, google services and scheduling system to maintain a 
                         consistent branding across various platforms.`,
             },
@@ -206,7 +203,7 @@ export const Portfolio = () => {
                 </Column>
                 <Column justifyContent='space-around' alignItems='center' width='80%'>
                     <Row justifyContent="center">
-                        <ScrollRef ref={experienceTitleRef} />
+                        <ScrollRef ref={projectsTitleRef} />
                         <Header1>Campaigns / Projects</Header1>
                     </Row>
                     <Column gap='2rem'>
@@ -229,7 +226,16 @@ export const Portfolio = () => {
                         </ProjectCard>
                     </Column>
                 </Column>
-                <SizedBox height="500px" />
+                <Column justifyContent='space-around' alignItems='center' width='80%'>
+                    <Row justifyContent="center">
+                        <ScrollRef ref={contactTitleRef} />
+                        <Header1>Contact</Header1>
+                    </Row>
+                    <Column gap='2rem'>
+                        <Card></Card>
+                    </Column>
+                </Column>
+                <SizedBox height="100vh" />
                 <Row justifyContent="center"
                     backgroundColor="#fff"
                     color="#000"

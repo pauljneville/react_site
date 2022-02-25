@@ -19,9 +19,10 @@ export const PortfolioNavBar = ({ navItems }) => {
                 top='0'
                 left='0'
             >
-                <Row justifyContent='space-around'
-                    alignItems="center"
+                <Row alignItems="center"
                     height="var(--navbar-height)"
+                    gap="3rem"
+                    padding="0 0 0 1.5rem"
                 >
                     {navItems.map((item, index) => {
                         return (
