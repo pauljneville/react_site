@@ -44,10 +44,14 @@ export const Portfolio = () => {
     const Wrapper = styled.div`
         padding-top: 1.2rem;
         justify-self: center;
-        width: 60vw;
-        min-width: 800px;
         height: calc(100vh - 1.2rem);
         background-color: #fff;
+        width: 90vw;
+
+        @media screen and (min-width: 800px) {
+            width: 60vw;
+            max-width: var(--body-max-width);
+        }
     `;
 
     const skillsTitleRef = useRef(null);
@@ -168,7 +172,7 @@ export const Portfolio = () => {
         ],
     };
     const supermarket = {
-        name: "Supermarket Click and Collect",
+        name: "Super Click and Collect",
         title: "Game Jam Prototype",
         image: supermarketShot,
         alt: "an character in a supermarket picking groceries",
@@ -204,8 +208,9 @@ export const Portfolio = () => {
                 <Column justifyContent='space-around' alignItems='center' width='80%'>
                     <Row justifyContent="center">
                         <ScrollRef ref={projectsTitleRef} />
-                        <Header1>Campaigns / Projects</Header1>
+                        <Header1>Projects</Header1>
                     </Row>
+                    <SizedBox width="20px" height="20px" />
                     <Column gap='2rem'>
                         {/* Chevron Dog Training */}
                         <ProjectCard title={cdt.name}>

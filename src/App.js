@@ -24,6 +24,7 @@ const globalStyle = css`
     --navbar-height: 2.5rem;
     --scroll-ref-offset: -4rem;
     --body-max-width: 800px;
+    --phone-width-clip: 800px;
     z-index: 0;
   }
 `;

@@ -1,10 +1,10 @@
 
-import { Header1, Header2, Row, Column, Avatar } from "./StandardComponents";
+import { TitleHeader, Header2, SetMobileColumnToRow, Column, Avatar } from "./StandardComponents";
 import profile from "../assets/profile/profile-greyscale.jpg";
 
 export const TitleCard = () => {
     return (
-        <Row justifyContent='center' alignItems='center' gap='2em'>
+        <SetMobileColumnToRow justifyContent='center' alignItems='center' gap='2em'>
             <Avatar src={profile}
                 alt={"photo of paul"}
                 width="150px"
@@ -12,10 +12,10 @@ export const TitleCard = () => {
                 boxShadow="1px 1px 6px #888"
             />
             <Column alignItems='center'>
-                <Header1>Paul Neville</Header1>
+                <TitleHeader>Paul Neville</TitleHeader>
                 <Header2>Software Development</Header2>
                 <Header2>Business Development</Header2>
             </Column>
-        </Row>
+        </SetMobileColumnToRow>
     );
 }

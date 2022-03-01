@@ -1,34 +1,16 @@
 
 import styled from '@emotion/styled'
 
-export const Row = styled.div`
+export const SetList = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: ${p => p.flexDirection ? p.flexDirection : 'row'};
     align-items: ${p => p.alignItems ? p.alignItems : 'start'};
     justify-content: ${p => p.justifyContent ? p.justifyContent : 'start'};
-    gap: ${p => p.gap};
-    position: relative;
-    top: ${p => p.top};
-    right: ${p => p.right};
-    bottom: ${p => p.bottom};
-    left: ${p => p.left};
     padding: ${p => p.padding};
-    background-color: ${p => p.backgroundColor};
-    width: ${p => p.width ? p.width : '100%'};
-    height: ${p => p.height};
-    &>*{
-        color: ${p => p.color};
-    }
-`;
-export const Column = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: ${p => p.alignItems ? p.alignItems : 'start'};
-    justify-content: ${p => p.justifyContent ? p.justifyContent : 'start'};
-    min-width: ${p => p.minWidth};
+    gap: ${p => p.gap};
+    
     width: ${p => p.width};
     height: ${p => p.height};
-    gap: ${p => p.gap};
     position: relative;
     top: ${p => p.top}
     right: ${p => p.right}
@@ -39,9 +21,15 @@ export const Column = styled.div`
         color: ${p => p.color};
     }
 `;
+export const Row = styled(SetList)`
+    flex-direction: row;
+`;
+export const Column = styled(SetList)`
+    flex-direction: column;
+`;
 export const GridColumns = styled.div`
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(${p => p.columnCount ? p.columnCount : 3}, 1fr);
     width: var(--boady-max-width);
     gap: ${p => p.gap};
 `;
@@ -112,20 +100,46 @@ export const HoverImage = styled.div`
         }
     }
 `;
-export const Header1 = styled.h1`
+
+export const TitleHeader = styled.h1`
     padding: ${p => p.padding ? p.padding : '0px 0px'};
     font-size: ${p => p.textSize ? p.textSize : '2.4em'};
     font-weight: ${p => p.fontWeight ? p.fontWeight : '500'};
+@media screen and (min-width: 800px) {
+    padding: ${p => p.padding ? p.padding : '0px 0px'};
+    font-size: ${p => p.textSize ? p.textSize : '2.4em'};
+    font-weight: ${p => p.fontWeight ? p.fontWeight : '500'};
+}
+`;
+export const Header1 = styled.h1`
+    padding: ${p => p.padding ? p.padding : '0px 0px'};
+    font-size: ${p => p.textSize ? p.textSize : '1.8em'};
+    font-weight: ${p => p.fontWeight ? p.fontWeight : '500'};
+@media screen and (min-width: 800px) {
+    padding: ${p => p.padding ? p.padding : '0px 0px'};
+    font-size: ${p => p.textSize ? p.textSize : '2.4em'};
+    font-weight: ${p => p.fontWeight ? p.fontWeight : '500'};
+}
 `;
 export const Header2 = styled.h2`
+padding: ${p => p.padding ? p.padding : '0px 0px'};
+font-size: ${p => p.textSize ? p.textSize : '1.4em'};
+font-weight: ${p => p.fontWeight ? p.fontWeight : '600'};
+@media screen and (min-width: 800px) {
     padding: ${p => p.padding ? p.padding : '0px 0px'};
     font-size: ${p => p.textSize ? p.textSize : '1.6em'};
     font-weight: ${p => p.fontWeight ? p.fontWeight : '600'};
+}
 `;
 export const Header3 = styled.h3`
+padding: ${p => p.padding ? p.padding : '0px 0px'};
+font-size: ${p => p.textSize ? p.textSize : '1.2em'};
+font-weight: ${p => p.fontWeight ? p.fontWeight : '500'};
+@media screen and (min-width: 800px) {
     padding: ${p => p.padding ? p.padding : '0px 0px'};
     font-size: ${p => p.textSize ? p.textSize : '1.2em'};
     font-weight: ${p => p.fontWeight ? p.fontWeight : '500'};
+}
 `;
 export const LiftHover = styled.div`
     box-shadow: 0px 0px 0px #777;
@@ -155,3 +169,11 @@ export const Chip = ({ label, color }) => {
         </Row>
     );
 }
+
+export const SetMobileColumnToRow = styled(SetList)`
+    flex-direction: column;
+
+    @media screen and (min-width: 800px) {
+        flex-direction: row;
+    }
+`;

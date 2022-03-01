@@ -1,4 +1,4 @@
-import { Column, Row, HoverImage, Image, Header3, SizedBox } from "./StandardComponents";
+import { Column, SetMobileColumnToRow, HoverImage, Image, Header3, SizedBox } from "./StandardComponents";
 
 export const FeatureCard = ({ image, alt, title, detail }) => {
     return (<HoverImage src={image}
@@ -6,7 +6,7 @@ export const FeatureCard = ({ image, alt, title, detail }) => {
         width="300px"
         height="155px"
     >
-        <Row gap="2rem">
+        <SetMobileColumnToRow gap="2rem">
             <SizedBox
                 width="300px"
                 height="155px"
@@ -21,7 +21,8 @@ export const FeatureCard = ({ image, alt, title, detail }) => {
                 <Header3>{title}</Header3>
                 <p>{detail}</p>
             </Column>
-        </Row>
+        </SetMobileColumnToRow>
+        <SizedBox width="20px" height="20px" />
     </HoverImage>
     );
 };
