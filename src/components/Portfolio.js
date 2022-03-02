@@ -29,6 +29,7 @@ import cdtDigitalProcesses from '../assets/portfolio/cdt-digital-processes.png';
 import cdtStaffTraining from '../assets/portfolio/cdt-staff-training.png';
 import supermarketShot from '../assets/portfolio/supermarket.png';
 import { Card } from './Card';
+import ScrollToTopOnLoad from './ScrollToTopOnLoad';
 
 export const Portfolio = () => {
     const Helmeted = () => {
@@ -121,7 +122,7 @@ export const Portfolio = () => {
             },
             {
                 image: cdtScheduler,
-                alt: "logo for chevron dog training",
+                alt: "screenshot of online scheduling system",
                 title: "Client Scheduling System",
                 detail: `Portal for clients to book online.
                         - client profile information
@@ -135,7 +136,7 @@ export const Portfolio = () => {
             },
             {
                 image: cdtDigitalProcesses,
-                alt: "logo for chevron dog training",
+                alt: "screenshot of PDF client form",
                 title: "Digital Processes",
                 detail: `Client information and appointment details recorded on touch devices.
                         Backed-up and shared between staff using cloud services.
@@ -143,14 +144,14 @@ export const Portfolio = () => {
             },
             {
                 image: cdtIPhone,
-                alt: "logo for chevron dog training",
+                alt: "screenshot of phone application",
                 title: "Google Play / iPhone App",
                 detail: `Education app to provide supplementary information to clients and 
                         to provide example audio content to demonstrate key behaviours.`,
             },
             {
                 image: cdtStaffTraining,
-                alt: "logo for chevron dog training",
+                alt: "screenshot of video recording using OBS",
                 title: "Staff Training Content",
                 detail: `Video content and documentation created to provide effective staff 
                         training regarding scheduling system features, website content, client 
@@ -159,7 +160,7 @@ export const Portfolio = () => {
             },
             {
                 image: cdtGraphicDesign,
-                alt: "logo for chevron dog training",
+                alt: "screenshot of SVG graphic design using Figma",
                 title: "Graphic Design",
                 detail: `Provided graphic design elements and iconography for use throughout 
                         the website, google services and scheduling system to maintain a 
@@ -167,7 +168,7 @@ export const Portfolio = () => {
             },
             {
                 image: cdtMockup,
-                alt: "logo for chevron dog training",
+                alt: "screenshot of website mockup using Figma",
                 title: "Mockup",
                 detail: `User interface mockup created using Figma to demonstrate website 
                         look and feel to stakeholders prior to commencing website build.
@@ -187,82 +188,84 @@ export const Portfolio = () => {
     }
 
     return (
-        <Wrapper>
-            <Helmeted />
-            <PortfolioNavBar navItems={navItems} />
-            <ScrollToTop />
-            <Column alignItems='center' justifyContent='center' gap='2rem'>
-                <TitleCard />
-                <SizedBox width='80%'>
-                    <TextCard />
-                </SizedBox>
-                <Column justifyContent='space-around' alignItems='center' width='80%'>
-                    <Row justifyContent="center">
-                        <ScrollRef ref={skillsTitleRef} />
-                        <Header1>Skills</Header1>
-                    </Row>
-                    <Column gap='1rem'>
-                        <ChipsCard title='Languages / Frameworks'
-                            chips={skillItems}
-                        />
-                        <ChipsCard title='Tools / Services'
-                            chips={toolItems}
-                        />
-                    </Column>
-                </Column>
-                <Column justifyContent='space-around' alignItems='center' width='80%'>
-                    <Row justifyContent="center">
-                        <ScrollRef ref={projectsTitleRef} />
-                        <Header1>Projects</Header1>
-                    </Row>
-                    <SizedBox width="20px" height="20px" />
-                    <Column gap='2rem'>
-                        {/* Chevron Dog Training */}
-                        <ProjectCard title={cdt.name}>
-                            <OverviewCard
-                                image={cdt.image}
-                                title={cdt.title}
-                                detail={cdt.detail}
+        <ScrollToTopOnLoad>
+            <Wrapper>
+                <Helmeted />
+                <PortfolioNavBar navItems={navItems} />
+                <ScrollToTop />
+                <Column alignItems='center' justifyContent='center' gap='2rem'>
+                    <TitleCard />
+                    <SizedBox width='80%'>
+                        <TextCard />
+                    </SizedBox>
+                    <Column justifyContent='space-around' alignItems='center' width='80%'>
+                        <Row justifyContent="center">
+                            <ScrollRef ref={skillsTitleRef} />
+                            <Header1>Skills</Header1>
+                        </Row>
+                        <Column gap='1rem'>
+                            <ChipsCard title='Languages / Frameworks'
+                                chips={skillItems}
                             />
-                            <ExpansionCard title="Key Features" items={cdt.features} />
-                        </ProjectCard>
-                        {/* Supermarket Prototype */}
-                        <ProjectCard title={supermarket.name}>
-                            <FeatureCard
-                                image={supermarket.image}
-                                title={supermarket.title}
-                                detail={supermarket.detail}
+                            <ChipsCard title='Tools / Services'
+                                chips={toolItems}
                             />
-                        </ProjectCard>
+                        </Column>
                     </Column>
-                </Column>
-                <Column justifyContent='space-around' alignItems='center' width='80%' gap='2rem'>
-                    <ScrollRef ref={contactTitleRef} />
-                    <Header1>Contact</Header1>
-                    <Column justifyContent='space-around' alignItems='center' gap='1rem'>
-                        <LiftHover>
-                            <Card>
-                                <a href="https://github.com/pauljneville" target="_blank"
-                                    rel="noopener noreferrer"><img height="40rem" src={GitHubLogo} alt="GitHub logo" /></a>
-                            </Card>
-                        </LiftHover>
-                        <LiftHover>
-                            <Card>
-                                <a href="https://www.linkedin.com/in/paul-neville-60598b139/" target="_blank"
-                                    rel="noopener noreferrer"><img height="40rem" src={LinkedInLogo} alt="LinkedIn logo" /></a>
-                            </Card>
-                        </LiftHover>
+                    <Column justifyContent='space-around' alignItems='center' width='80%'>
+                        <Row justifyContent="center">
+                            <ScrollRef ref={projectsTitleRef} />
+                            <Header1>Projects</Header1>
+                        </Row>
+                        <SizedBox width="20px" height="20px" />
+                        <Column gap='2rem'>
+                            {/* Chevron Dog Training */}
+                            <ProjectCard title={cdt.name}>
+                                <OverviewCard
+                                    image={cdt.image}
+                                    title={cdt.title}
+                                    detail={cdt.detail}
+                                />
+                                <ExpansionCard title="Key Features" items={cdt.features} />
+                            </ProjectCard>
+                            {/* Supermarket Prototype */}
+                            <ProjectCard title={supermarket.name}>
+                                <FeatureCard
+                                    image={supermarket.image}
+                                    title={supermarket.title}
+                                    detail={supermarket.detail}
+                                />
+                            </ProjectCard>
+                        </Column>
                     </Column>
+                    <Column justifyContent='space-around' alignItems='center' width='80%' gap='2rem'>
+                        <ScrollRef ref={contactTitleRef} />
+                        <Header1>Contact</Header1>
+                        <Column justifyContent='space-around' alignItems='center' gap='1rem'>
+                            <LiftHover>
+                                <Card>
+                                    <a href="https://github.com/pauljneville" target="_blank"
+                                        rel="noopener noreferrer"><img height="40rem" src={GitHubLogo} alt="GitHub logo" /></a>
+                                </Card>
+                            </LiftHover>
+                            <LiftHover>
+                                <Card>
+                                    <a href="https://www.linkedin.com/in/paul-neville-60598b139/" target="_blank"
+                                        rel="noopener noreferrer"><img height="40rem" src={LinkedInLogo} alt="LinkedIn logo" /></a>
+                                </Card>
+                            </LiftHover>
+                        </Column>
+                    </Column>
+                    <SizedBox height="100vh" />
+                    <Row justifyContent="center"
+                        backgroundColor="#fff"
+                        color="#000"
+                    >
+                        Copyright © 2022 | All Rights Reserved
+                    </Row>
                 </Column>
-                <SizedBox height="100vh" />
-                <Row justifyContent="center"
-                    backgroundColor="#fff"
-                    color="#000"
-                >
-                    Copyright © 2022 | All Rights Reserved
-                </Row>
-            </Column>
-        </Wrapper >
+            </Wrapper >
+        </ScrollToTopOnLoad>
     );
 }
 
