@@ -2,18 +2,22 @@
 import { React, useRef } from 'react';
 import styled from '@emotion/styled'
 
+import GitHubLogo from '../assets/portfolio/github.svg';
+import LinkedInLogo from '../assets/portfolio/linkedin.svg';
+
 import { Helmet } from 'react-helmet-async';
 import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper';
 
 import { PortfolioNavBar } from "./PortfolioNavBar";
 import { TitleCard } from "./TitleCard";
-import { SizedBox, Column, Row, Header1, ScrollRef } from './StandardComponents';
+import { SizedBox, Column, Row, Header1, ScrollRef, LiftHover } from './StandardComponents';
 import { TextCard } from "./TextCard";
 import { ChipsCard } from './ChipsCard';
 import { ProjectCard } from './ProjectCard';
 import { OverviewCard } from './OverviewCard';
 import { ExpansionCard } from './ExpansionCard';
 import { FeatureCard } from './FeatureCard';
+import { ScrollToTop } from './ScrollToTop';
 
 import cdtLogo from '../assets/portfolio/cdt-logo.png';
 import cdtWebsite from '../assets/portfolio/cdt-website.png';
@@ -186,6 +190,7 @@ export const Portfolio = () => {
         <Wrapper>
             <Helmeted />
             <PortfolioNavBar navItems={navItems} />
+            <ScrollToTop />
             <Column alignItems='center' justifyContent='center' gap='2rem'>
                 <TitleCard />
                 <SizedBox width='80%'>
@@ -231,13 +236,22 @@ export const Portfolio = () => {
                         </ProjectCard>
                     </Column>
                 </Column>
-                <Column justifyContent='space-around' alignItems='center' width='80%'>
-                    <Row justifyContent="center">
-                        <ScrollRef ref={contactTitleRef} />
-                        <Header1>Contact</Header1>
-                    </Row>
-                    <Column gap='2rem'>
-                        <Card></Card>
+                <Column justifyContent='space-around' alignItems='center' width='80%' gap='2rem'>
+                    <ScrollRef ref={contactTitleRef} />
+                    <Header1>Contact</Header1>
+                    <Column justifyContent='space-around' alignItems='center' gap='1rem'>
+                        <LiftHover>
+                            <Card>
+                                <a href="https://github.com/pauljneville" target="_blank"
+                                    rel="noopener noreferrer"><img height="40rem" src={GitHubLogo} alt="GitHub logo" /></a>
+                            </Card>
+                        </LiftHover>
+                        <LiftHover>
+                            <Card>
+                                <a href="https://www.linkedin.com/in/paul-neville-60598b139/" target="_blank"
+                                    rel="noopener noreferrer"><img height="40rem" src={LinkedInLogo} alt="LinkedIn logo" /></a>
+                            </Card>
+                        </LiftHover>
                     </Column>
                 </Column>
                 <SizedBox height="100vh" />
@@ -245,10 +259,10 @@ export const Portfolio = () => {
                     backgroundColor="#fff"
                     color="#000"
                 >
-                    Made with React
+                    Copyright © 2022 | All Rights Reserved
                 </Row>
             </Column>
-        </Wrapper>
+        </Wrapper >
     );
 }
 

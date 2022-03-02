@@ -51,6 +51,8 @@ export const SizedBox = styled.div`
     filter: blur(${p => p.blur ? p.blur : 0});
     width: ${p => p.width};
     height: ${p => p.height};
+    min-width: ${p => p.width};
+    min-height: ${p => p.height};
     background-color: ${p => p.color};
     border-radius: ${p => p.borderRadius};
     margin-top: ${p => p.marginTop};
@@ -86,17 +88,19 @@ export const Image = styled.img`
     background-color: white;
 `;
 export const HoverImage = styled.div`
-    &:hover {
-        z-index: 11;
-        img {
-            background-color: white;
-            position: relative;
-            width: calc(${p => p.width} * 2);
-            height: calc(${p => p.height} * 2);
-        }
-        .detail-card {
-            background-color: white;
-            opacity: 0;
+    @media screen and (min-width: 800px) {
+        &:hover {
+            z-index: 11;
+            img {
+                background-color: white;
+                position: relative;
+                width: calc(${p => p.width} * 2);
+                height: calc(${p => p.height} * 2);
+            }
+            .detail-card {
+                background-color: white;
+                opacity: 0;
+            }
         }
     }
 `;
@@ -146,10 +150,13 @@ export const LiftHover = styled.div`
     bottom: 0rem;
     border-radius: 0%;
     transition: all 0.5s ease-out;
+    padding: 0.5em 1em;
     &:hover {
         box-shadow: 1px 1px 6px #ccc;
+        position: relative;
         bottom: 0.25rem;
         border-radius: 2%;
+        padding: 0.5em 1em;
     }
 `;
 
