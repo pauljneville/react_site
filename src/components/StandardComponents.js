@@ -180,7 +180,7 @@ export const Chip = ({ label, color }) => {
 export const SetMobileColumnToRow = styled(SetList)`
     flex-direction: column;
 
-    @media screen and (min-width: 800px) {
+    @media screen and (min-width: 1000px) {
         flex-direction: row;
     }
 `;
