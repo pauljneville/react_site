@@ -162,13 +162,13 @@ export const LiftHover = styled.div`
 
 export const Chip = ({ label, color }) => {
     return (
-        <Row gap="0.5em" alignItems='start'>
+        <Row gap="0em" alignItems='start'>
             <SizedBox
                 width="0.5rem"
                 height="0.5rem"
                 color={color}
                 borderRadius="40%"
-                marginTop="0.5em"
+                marginTop="1.0rem"
             />
             <LiftHover>
                 <Header3>{label}</Header3>

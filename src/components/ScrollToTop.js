@@ -26,6 +26,7 @@ export const ScrollToTop = () => {
         bottom: 20px;
         right: 20px;
         transition: 1s;
+        z-index: 10;
     `;
 
     return (
