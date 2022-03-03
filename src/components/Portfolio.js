@@ -10,7 +10,7 @@ import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper';
 
 import { PortfolioNavBar } from "./PortfolioNavBar";
 import { TitleCard } from "./TitleCard";
-import { SizedBox, Column, Row, Header1, ScrollRef, LiftHover } from './StandardComponents';
+import { SizedBox, Column, Row, Header1, ScrollRef, LiftHover, EndScroll } from './StandardComponents';
 import { TextCard } from "./TextCard";
 import { ChipsCard } from './ChipsCard';
 import { ProjectCard } from './ProjectCard';
@@ -239,8 +239,10 @@ export const Portfolio = () => {
                         </Column>
                     </Column>
                     <Column justifyContent='space-around' alignItems='center' width='80%' gap='2rem'>
-                        <ScrollRef ref={contactTitleRef} />
-                        <Header1>Contact</Header1>
+                        <Column>
+                            <ScrollRef ref={contactTitleRef} />
+                            <Header1>Contact</Header1>
+                        </Column>
                         <Column justifyContent='space-around' alignItems='center' gap='1rem'>
                             <LiftHover>
                                 <Card>
@@ -256,7 +258,7 @@ export const Portfolio = () => {
                             </LiftHover>
                         </Column>
                     </Column>
-                    <SizedBox height="100vh" />
+                    <EndScroll height="100vh" />
                     <Row justifyContent="center"
                         backgroundColor="#fff"
                         color="#000"

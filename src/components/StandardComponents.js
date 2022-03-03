@@ -58,6 +58,11 @@ export const SizedBox = styled.div`
     margin-top: ${p => p.marginTop};
     box-shadow: ${p => p.boxShadow};
 `;
+export const EndScroll = styled(SizedBox)`
+    min-height: calc(${p => p.height} - 24rem);
+    height: calc(${p => p.height} - 24rem);
+    max-height: calc(${p => p.height} - 24rem);
+`;
 export const ScrollLink = styled.div`
     background-color: #fff;
     font-size: --navbar-font-height;
