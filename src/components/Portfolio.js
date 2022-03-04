@@ -270,8 +270,3 @@ export const Portfolio = () => {
         </ScrollToTopOnLoad>
     );
 }
-
-
-
-
-

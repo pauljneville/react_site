@@ -6,7 +6,7 @@ import expansionArrow from "../assets/portfolio/expansion-arrow.svg";
 
 export const ExpansionCard = ({ title, items }) => {
     const [isExpanded, setExpanded] = useState(false);
-    const [rotation, setRotation] = useState(0);
+    const [rotation, setRotation] = useState(-90);
     const toggleExpanded = () => {
         isExpanded ? setExpanded(false) : setExpanded(true);
         isExpanded ? setRotation(-90) : setRotation(0);
