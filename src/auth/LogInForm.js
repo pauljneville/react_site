@@ -28,8 +28,10 @@ const LogInForm = () => {
     const email = useInput('');
     const password = useInput('');
 
-    const [isGithub, setIsGithub] = useState(false);
-    const [isEmailLink, setIsEmailLink] = useState(false);
+    // const [isGithub, setIsGithub] = useState(false);
+    // const [isEmailLink, setIsEmailLink] = useState(false);
+    const [isGithub] = useState(false);
+    const [isEmailLink] = useState(false);
     const [emailError, setEmailError] = useState('');
     const [emailSent, setEmailSent] = useState(false);
 
@@ -61,14 +63,14 @@ const LogInForm = () => {
         }
     }
 
-    const onGithubSwitch = () => {
-        setIsGithub(!isGithub);
-        setIsEmailLink(false);
-    }
-    const onEmailLinkSwitch = () => {
-        setIsEmailLink(!isEmailLink);
-        setIsGithub(false);
-    }
+    // const onGithubSwitch = () => {
+    //     setIsGithub(!isGithub);
+    //     setIsEmailLink(false);
+    // }
+    // const onEmailLinkSwitch = () => {
+    //     setIsEmailLink(!isEmailLink);
+    //     setIsGithub(false);
+    // }
 
 
     return (

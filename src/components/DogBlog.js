@@ -26,10 +26,10 @@ const DogBlog = () => {
                 <LoginRoute exact path={dogBlogLinks.login.url}>
                     <LogInForm />
                 </LoginRoute>
-                <Route exact path={dogBlogLinks.details.url}><BlogDetails /></Route>
-                <Route exact path={dogBlogLinks.home.url}><Home /></Route>
+                <PrivateRoute exact path={dogBlogLinks.details.url}><BlogDetails /></PrivateRoute>
+                <PrivateRoute exact path={dogBlogLinks.home.url}><Home /></PrivateRoute>
                 <PrivateRoute exact path={dogBlogLinks.profile.url}><Profile /></PrivateRoute>
-                <Route exact path={dogBlogLinks.friends.url}><Friends /></Route>
+                <PrivateRoute exact path={dogBlogLinks.friends.url}><Friends /></PrivateRoute>
                 <LoginRoute exact path={dogBlogLinks.signup.url}>
                     <SignUpForm />
                 </LoginRoute>

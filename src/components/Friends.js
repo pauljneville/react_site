@@ -39,7 +39,7 @@ const Friends = () => {
   const Helmeted = () => {
     return (
       <Helmet>
-        <title>Topics | Lali's Dog Blog</title>
+        <title>Friends | Lali's Dog Blog</title>
         <link rel="icon" href="../assets/dogblog/lalicon.ico" />
         <meta property="og:title" name="title" content="Lali's Dog Blog" />
         <meta property="og:description" name="description" content="Lali blog of recent activities" />
