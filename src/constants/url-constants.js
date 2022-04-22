@@ -2,16 +2,21 @@
 export const siteLinks = {
     portfolio: { url: "/", label: "Home" },
     dogblog: { url: "/dogblog", label: "Dog Blog" },
+    mathblog: { url: "/mathblog", label: "Math Blog " },
     plantpurchase: { url: "/plantpurchase", label: "Plant Purchase" },
     foodbook: { url: "/foodbook", label: "Food Book" },
     dogtrain: { url: "/dogtrain", label: "Dog Train" },
+};
+
+export const mathBlogLinks = {
+    home: { url: siteLinks.mathblog.url, label: "Home" },
 };
 
 export const dogBlogLinks = {
     index: { url: siteLinks.dogblog.url, label: "Index" },
     home: { url: siteLinks.dogblog.url, label: "Home" },
     about: { url: siteLinks.dogblog.url + "/about", label: "About" },
-    topics: { url: siteLinks.dogblog.url + "/topics", label: "Topics" },
+    friends: { url: siteLinks.dogblog.url + "/friends", label: "Friends" },
     signup: { url: siteLinks.dogblog.url + "/signup", label: "Sign-Up" },
     confirm: { url: siteLinks.dogblog.url + "/confirm", label: "Confirm" },
     login: { url: siteLinks.dogblog.url + "/login", label: "Log-In" },

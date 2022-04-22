@@ -102,14 +102,14 @@ const SignUpForm = () => {
 
                             {!emailSent && <h2>Sign Up</h2>}
                             {!emailSent && <form onSubmit={onSubmit}>
-                                <label className="switch">
+                                {/* <label className="switch">
                                     <input type="checkbox" checked={isGithub} onChange={onGithubSwitch} />
                                     Use Github
                                 </label>
                                 <label className="switch">
                                     <input type="checkbox" checked={isEmailLink} onChange={onEmailLinkSwitch} />
                                     Use Email link
-                                </label>
+                                </label> */}
 
                                 {!isGithub && <label>Display Name</label>}
                                 {!isGithub && <input

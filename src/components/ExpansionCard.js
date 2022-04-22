@@ -7,9 +7,15 @@ import expansionArrow from "../assets/portfolio/expansion-arrow.svg";
 export const ExpansionCard = ({ title, items }) => {
     const [isExpanded, setExpanded] = useState(false);
     const [rotation, setRotation] = useState(-90);
+
     const toggleExpanded = () => {
-        isExpanded ? setExpanded(false) : setExpanded(true);
-        isExpanded ? setRotation(-90) : setRotation(0);
+        if (isExpanded) {
+            setExpanded(false);
+            setRotation(-90);
+        } else {
+            setExpanded(true);
+            setRotation(0);
+        }
     };
 
     const Collapsible = styled.div`
@@ -27,26 +33,27 @@ export const ExpansionCard = ({ title, items }) => {
 
     return (
         <>
-            <Collapsible >
-                <Row alignItems="center" gap="1rem" onClick={toggleExpanded} >
-                    {/* <Arrow rotate={isExpanded ? "0deg" : "-90deg"}><img src={expansionArrow} alt="expansion arrow" /></Arrow> */}
-                    <Arrow degrees={rotation}>
+            <Collapsible>
+                <Row alignItems="center" gap="1rem" onClick={toggleExpanded}>
+                    <Arrow degrees={rotation} >
                         <img src={expansionArrow} alt="expansion arrow" />
                     </Arrow>
                     <Header2>{title}</Header2>
                 </Row>
             </Collapsible>
-            {isExpanded ? items.map((item, index) => {
-                return (
-                    <FeatureCard
-                        key={index}
-                        image={item.image}
-                        alt={item.alt}
-                        title={item.title}
-                        detail={item.detail}
-                    />
-                );
-            }) : <></>}
+            {
+                isExpanded ? items.map((item, index) => {
+                    return (
+                        <FeatureCard
+                            key={index}
+                            image={item.image}
+                            alt={item.alt}
+                            title={item.title}
+                            details={item.details}
+                        />
+                    );
+                }) : <></>
+            }
         </>
     );
 };

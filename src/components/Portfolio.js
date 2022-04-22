@@ -28,6 +28,7 @@ import cdtIPhone from '../assets/portfolio/cdt-iphone.png';
 import cdtDigitalProcesses from '../assets/portfolio/cdt-digital-processes.png';
 import cdtStaffTraining from '../assets/portfolio/cdt-staff-training.png';
 import supermarketShot from '../assets/portfolio/supermarket.png';
+import dogblogShot from '../assets/portfolio/dogblog.png';
 import { Card } from './Card';
 import ScrollToTopOnLoad from './ScrollToTopOnLoad';
 
@@ -73,13 +74,12 @@ export const Portfolio = () => {
     ];
     const skillItems = [
         { label: 'C, C++', color: 'black' },
-        { label: 'C#', color: 'black' },
-        { label: 'Java', color: 'black' },
+        { label: 'C#, Java', color: 'black' },
         { label: 'Dart, Flutter', color: 'black' },
-        { label: 'Javascript, React', color: 'black' },
-        { label: 'HTML, CSS, Emotion', color: 'black' },
-        { label: 'SQL', color: 'black' },
-        { label: 'noSQL', color: 'black' },
+        { label: 'Javascript, Typescript', color: 'black' },
+        { label: 'React, Next', color: 'black' },
+        { label: 'HTML, CSS', color: 'black' },
+        { label: 'SQL, NoSQL', color: 'black' },
         { label: 'Node, Express', color: 'black' },
         { label: 'API development', color: 'black' },
         { label: 'Python', color: 'black' },
@@ -91,10 +91,8 @@ export const Portfolio = () => {
         { label: 'Firebase', color: 'black' },
         { label: 'Git, CI/CD', color: 'black' },
         { label: 'Notion, Trello', color: 'black' },
-        { label: 'Wordpress', color: 'black' },
         { label: 'Graphic Design', color: 'black' },
-        { label: 'Figma, SVG, icons', color: 'black' },
-        { label: 'PDF forms', color: 'black' },
+        { label: 'Figma Mockups, SVG, icons', color: 'black' },
         { label: 'Unity', color: 'black' },
         { label: 'Postman', color: 'black' },
         { label: 'Twilio', color: 'black' },
@@ -104,75 +102,81 @@ export const Portfolio = () => {
     const cdt = {
         name: "Chevron Dog Training",
         title: "Dog Training, Walking and Pet Sitting",
+        url: "https://chevrondogtraining.com",
         image: cdtLogo,
         alt: "logo for chevron dog training",
-        detail: `Chevron Dog Training was established 2 years ago; operating in the Illawarra area. 
-                Scheduling appointments was manual, as was invoicing and client management, 
-                preventing further growth. Web presence was limited to Facebook and Instagram. 
-                Client information was recorded and filed on paper forms.`,
+        details: ["Chevron Dog Training was established 2 years ago; operating in the Illawarra area.",
+            "Scheduling appointments was manual, as was invoicing and client management, preventing further growth. Web presence was limited to Facebook and Instagram.",
+            "Client information was recorded and filed on paper forms.",
+        ],
         features: [
             {
                 image: cdtWebsite,
                 alt: "screenshot of chevron dog training website",
                 title: "Responsive Website",
-                detail: `Developed a website to create a desktop and mobile experience to clients 
-                        seeking information about staff and services offered, schedule calls and 
-                        book appointments. 
-                        Design elements created to provide consistent branding across platforms.`,
+                details: [
+                    "Developed a website to create a desktop and mobile experience to clients seeking information about staff and services offered, schedule calls and book appointments.",
+                    "Design elements created to provide consistent branding across platforms.",
+                ],
             },
             {
                 image: cdtScheduler,
                 alt: "screenshot of online scheduling system",
                 title: "Client Scheduling System",
-                detail: `Portal for clients to book online.
-                        - client profile information
-                        - appointment scheduling
-                        - invoicing and payments
-                        - staff availability
-                        - service locations and features
-                        - email templates and triggers
-                        - policy forms
-                        - theme consistency and icon design`,
+                details: [
+                    "Portal for clients to book  appointments online and manage invoices.",
+                    "- client profile information",
+                    "- appointment scheduling",
+                    "- invoicing and payments",
+                    "- staff availability",
+                    "- service locations and features",
+                    "- email templates and triggers",
+                    "- policy forms",
+                    "- theme consistency and icon design",
+                ],
             },
             {
                 image: cdtDigitalProcesses,
                 alt: "screenshot of PDF client form",
                 title: "Digital Processes",
-                detail: `Client information and appointment details recorded on touch devices.
-                        Backed-up and shared between staff using cloud services.
-                        Data exported for use in aggragation, statistics, and marketing purposes.`,
+                details: [
+                    "Client information and appointment details recorded on touch devices.",
+                    "Backed-up and shared between staff using cloud services.",
+                    "Data exported for use in aggragation, statistics, and marketing purposes.",
+                ],
             },
             {
                 image: cdtIPhone,
                 alt: "screenshot of phone application",
                 title: "Google Play / iPhone App",
-                detail: `Education app to provide supplementary information to clients and 
-                        to provide example audio content to demonstrate key behaviours.`,
+                details: [
+                    "Education app to provide supplementary information to clients and to provide example audio content to demonstrate key behaviours.",
+                ],
             },
             {
                 image: cdtStaffTraining,
                 alt: "screenshot of video recording using OBS",
                 title: "Staff Training Content",
-                detail: `Video content and documentation created to provide effective staff 
-                        training regarding scheduling system features, website content, client 
-                        form and Google Suite features.
-                        OBS, Carnac, Steps Recorder`,
+                details: [
+                    "Video content and documentation created to provide effective staff training regarding scheduling system features, website content, client form and Google Suite features. OBS, Carnac, Steps Recorder.",
+                ],
             },
             {
                 image: cdtGraphicDesign,
                 alt: "screenshot of SVG graphic design using Figma",
                 title: "Graphic Design",
-                detail: `Provided graphic design elements and iconography for use throughout 
-                        the website, google services and scheduling system to maintain a 
-                        consistent branding across various platforms.`,
+                details: [
+                    "Provided graphic design elements and iconography for use throughout the website, google services and scheduling system to maintain a consistent branding across various platforms.",
+                ],
             },
             {
                 image: cdtMockup,
                 alt: "screenshot of website mockup using Figma",
                 title: "Mockup",
-                detail: `User interface mockup created using Figma to demonstrate website 
-                        look and feel to stakeholders prior to commencing website build.
-                        Used to visualise client requirements and meet requested outcomes.`,
+                details: [
+                    "User interface mockup created using Figma to demonstrate website look and feel to stakeholders prior to commencing website build.",
+                    "Used to visualise client requirements and meet requested outcomes.",
+                ],
             },
         ],
     };
@@ -180,11 +184,24 @@ export const Portfolio = () => {
         name: "Super Click and Collect",
         title: "Game Jam Prototype",
         image: supermarketShot,
-        alt: "an character in a supermarket picking groceries",
-        detail: `Simple 'Click and Collect' prototype game made in 48 hours to act as a proof 
-                of concept for further development.
-                The game focused around order fulfillment in a supermarket environment.
-                Featured procedurally generated levels and randomised stock items.`,
+        alt: "a character in a supermarket picking groceries",
+        details: [
+            "Simple 'Click and Collect' prototype game made in 48 hours to act as a proof of concept for further development.",
+            "The game focused around order fulfillment in a supermarket environment.",
+            "Featured procedurally generated levels and randomised stock items.",
+        ],
+    }
+    const dogblog = {
+        name: "Blog with Profile",
+        title: "Lali's Dog Blog",
+        image: dogblogShot,
+        alt: "screenshot of dog blog site",
+        details: [
+            "An example of a blogging website with Firebase storage, user profiles and authentication.",
+            "Blogs can be created and updated. They use markdown with remark and mathjax to display formatting and math symbols.",
+            "The website also includes an admin panel for management of posts.",
+        ],
+        url: "https://paulneville.com.au/dogblog"
     }
 
     return (
@@ -224,16 +241,26 @@ export const Portfolio = () => {
                                 <OverviewCard
                                     image={cdt.image}
                                     title={cdt.title}
-                                    detail={cdt.detail}
+                                    details={cdt.details}
+                                    url={cdt.url}
                                 />
                                 <ExpansionCard title="Key Features" items={cdt.features} />
+                            </ProjectCard>
+                            {/* Dog Blog */}
+                            <ProjectCard title={dogblog.name}>
+                                <FeatureCard
+                                    image={dogblog.image}
+                                    title={dogblog.title}
+                                    details={dogblog.details}
+                                    url={dogblog.url}
+                                />
                             </ProjectCard>
                             {/* Supermarket Prototype */}
                             <ProjectCard title={supermarket.name}>
                                 <FeatureCard
                                     image={supermarket.image}
                                     title={supermarket.title}
-                                    detail={supermarket.detail}
+                                    details={supermarket.details}
                                 />
                             </ProjectCard>
                         </Column>
@@ -263,7 +290,7 @@ export const Portfolio = () => {
                         backgroundColor="#fff"
                         color="#000"
                     >
-                        Copyright © 2022 | All Rights Reserved
+                        🏁
                     </Row>
                 </Column>
             </Wrapper >

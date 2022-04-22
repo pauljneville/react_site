@@ -16,7 +16,7 @@ const Navbar = () => {
             <nav className="links">
                 <Link to={dogBlogLinks.home.url} className="link-button">{dogBlogLinks.home.label}</Link>
                 <Link to={dogBlogLinks.about.url} className="link-button">{dogBlogLinks.about.label}</Link>
-                <Link to={dogBlogLinks.topics.url} className="link-button">{dogBlogLinks.topics.label}</Link>
+                <Link to={dogBlogLinks.friends.url} className="link-button">{dogBlogLinks.friends.label}</Link>
                 {/* <Link to="/topics" style={{
                         color: "white",
                         backgroundColor: "#f1356d",

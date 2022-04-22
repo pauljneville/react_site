@@ -11,6 +11,7 @@ import { siteLinks } from "./constants/url-constants";
 
 import { Portfolio } from "./components/Portfolio";
 import DogBlog from "./components/DogBlog";
+import MathBlog from "./components/mathblog/MathBlog";
 import PlantPurchase from "./components/PlantPurchase";
 import FoodBook from "./components/FoodBook";
 // import SiteNav from "./components/SiteNav";
@@ -39,6 +40,7 @@ export default function App() {
           {/* <SiteNav /> */}
           <Switch>
             <Route exact path="/" ><Portfolio /></Route>
+            <Route path={siteLinks.mathblog.url} ><MathBlog /></Route>
             <Route path={siteLinks.dogblog.url} ><DogBlog /></Route>
             <Route path={siteLinks.plantpurchase.url} > <PlantPurchase /></Route>
             <Route path={siteLinks.foodbook.url} ><FoodBook /></Route>

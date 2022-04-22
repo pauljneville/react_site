@@ -11,7 +11,7 @@ import Footer from './Footer';
 import Sidebar from './Sidebar';
 
 
-const Topics = () => {
+const Friends = () => {
 
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(true);
@@ -78,4 +78,4 @@ const Topics = () => {
 
 }
 
-export default Topics;
+export default Friends;

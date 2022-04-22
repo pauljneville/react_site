@@ -1,6 +1,6 @@
 import { Column, SetMobileColumnToRow, HoverImage, Image, Header3, SizedBox } from "./StandardComponents";
 
-export const FeatureCard = ({ image, alt, title, detail }) => {
+export const FeatureCard = ({ image, alt, title, details, url }) => {
     return (<HoverImage src={image}
         alt={alt}
         width="300px"
@@ -19,7 +19,10 @@ export const FeatureCard = ({ image, alt, title, detail }) => {
             </SizedBox>
             <Column className="detail-card">
                 <Header3>{title}</Header3>
-                <p>{detail}</p>
+                {details.map((detail) => (
+                    <p>{detail}</p>
+                ))}
+                {url && <a href={url} target="_blank" rel="noopener noreferrer">{url}</a>}
             </Column>
         </SetMobileColumnToRow>
         <SizedBox width="20px" height="20px" />
