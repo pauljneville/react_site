@@ -1,7 +1,7 @@
 
 import { db } from '../firebase.config';
 import { useState } from 'react';
-import { addDoc, collection } from "firebase/firestore/lite";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore/lite";
 import { useHistory } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { dogBlogLinks } from '../constants/url-constants';
@@ -19,7 +19,7 @@ const PostBlogEntry = ({ onCancel }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const blog = { author, title, body: blogContents, emoji };
+        const blog = { author, title, body: blogContents, emoji, createdAt: serverTimestamp() };
         await addDoc(collection(db, 'blogs'), blog);
 
         setAuthor('');

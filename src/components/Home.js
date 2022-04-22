@@ -3,7 +3,7 @@ import Padding from './Padding';
 
 import { db } from '../firebase.config';
 import { useEffect, useState } from 'react';
-import { collection, getDocs, query, limit } from 'firebase/firestore/lite';
+import { collection, getDocs, query, limit, orderBy } from 'firebase/firestore/lite';
 
 import PostBlogEntry from "./PostBlogEntry";
 import { useAuth } from "../hooks/useAuth";
@@ -40,7 +40,7 @@ const Home = () => {
     }, []);
 
     const fetchBlogs = async () => {
-        const blogsCollection = query(collection(db, 'blogs'), limit(10));
+        const blogsCollection = query(collection(db, 'blogs'), limit(10), orderBy('createdAt', 'desc'),);
         await getDocs(blogsCollection)
             .then(snapshot => {
                 const blogsList = snapshot.docs.map(doc => ({ id: doc.id, data: doc.data() }));

@@ -71,16 +71,11 @@ const BlogDetails = () => {
     }, [params]);
 
     const handleEdit = async () => {
-        console.log("Edit handled 1");
         // e.preventDefault();
 
-        console.log("Edit handled 2");
         try {
-            console.log("Edit handled 3");
             await updateDoc(doc(db, 'blogs', blog.id), { "title": title, "body": blogContents, "emoji": emoji });
-            console.log("updated");
         } catch (error) {
-            console.log("Edit handled 4");
             console.log(error);
         }
 
@@ -90,7 +85,6 @@ const BlogDetails = () => {
         // setEmoji("0x1F600");
 
         // history.push(dogBlogLinks.home);
-        console.log("Edit handled 5");
         setIsEditing(false)
     }
 
