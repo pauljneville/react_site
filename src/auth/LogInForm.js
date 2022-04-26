@@ -7,9 +7,9 @@ import { useInput } from '../hooks/useInput';
 
 import { dogBlogLinks } from '../constants/url-constants';
 import { Helmet } from 'react-helmet-async';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Sidebar from '../components/Sidebar';
+import Header from '../components/dogblog/Header';
+import Sidebar from '../components/dogblog/Sidebar';
+import Footer from '../components//Footer';
 
 const LogInForm = () => {
     const Helmeted = () => {

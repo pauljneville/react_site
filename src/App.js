@@ -9,8 +9,8 @@ import {
 } from "react-router-dom";
 import { siteLinks } from "./constants/url-constants";
 
-import { Portfolio } from "./components/Portfolio";
-import DogBlog from "./components/DogBlog";
+import Portfolio from "./components/portfolio/Portfolio";
+import DogBlog from "./components/dogblog/DogBlog";
 import MathBlog from "./components/mathblog/MathBlog";
 import PlantPurchase from "./components/PlantPurchase";
 import FoodBook from "./components/FoodBook";
