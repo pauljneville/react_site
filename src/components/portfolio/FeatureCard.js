@@ -1,4 +1,3 @@
-import HoverImage from '../general/HoverImage';
 import SetMobileColumnToRow from '../general/SetMobileColumnToRow';
 import SizedBox from '../general/SizedBox';
 import Image from '../general/Image';
@@ -7,20 +6,20 @@ import Header3 from '../general/Header3';
 
 const FeatureCard = ({ image, alt, title, details, url }) => {
     return (
-        <HoverImage src={image}
-            alt={alt}
-            width="300px"
-            height="155px"
-        >
+        <>
             <SetMobileColumnToRow gap="2rem">
                 <SizedBox
-                    width="300px"
-                    height="155px"
+                    width="400px"
+                    height="248px"
+                    mobileWidth="300px"
+                    mobileHeight="186px"
                 >
                     <Image src={image}
                         alt={alt}
-                        width="300px"
-                        height="155px"
+                        width="400px"
+                        height="248px"
+                        mobileWidth="300px"
+                        mobileHeight="186px"
                     ></Image>
                 </SizedBox>
                 <Column className="detail-card">
@@ -32,7 +31,7 @@ const FeatureCard = ({ image, alt, title, details, url }) => {
                 </Column>
             </SetMobileColumnToRow>
             <SizedBox width="20px" height="20px" />
-        </HoverImage>
+        </>
     );
 };
 
