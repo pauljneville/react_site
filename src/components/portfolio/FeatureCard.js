@@ -16,8 +16,8 @@ const FeatureCard = ({ image, alt, title, details, url }) => {
                 >
                     <Image src={image}
                         alt={alt}
-                        width="400px"
-                        height="248px"
+                        width="300px"
+                        height="186px"
                         mobileWidth="300px"
                         mobileHeight="186px"
                     ></Image>

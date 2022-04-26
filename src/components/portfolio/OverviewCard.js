@@ -9,8 +9,8 @@ const OverviewCard = ({ image, alt, title, details, url }) => {
         <SetMobileColumnToRow gap="2rem" alignItems="start">
             <Image src={image}
                 alt={alt}
-                width="400px"
-                height="248px"
+                width="300px"
+                height="186px"
                 mobileWidth="300px"
                 mobileHeight="186px" />
             <Column>

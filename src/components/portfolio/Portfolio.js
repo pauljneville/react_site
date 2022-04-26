@@ -27,7 +27,7 @@ import ExpansionCard from './ExpansionCard';
 // import { FeatureCard } from './FeatureCard';
 import ScrollToTop from '../general/ScrollToTop';
 
-import cdtLogo from '../../assets/portfolio/cdt-logo.png';
+import cdtLogo from '../../assets/portfolio/cdt-overview.png';
 import cdtWebsite from '../../assets/portfolio/cdt-website.png';
 import cdtScheduler from '../../assets/portfolio/cdt-scheduler.png';
 import cdtGraphicDesign from '../../assets/portfolio/cdt-graphic-design.png';
