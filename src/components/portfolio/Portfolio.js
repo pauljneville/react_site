@@ -109,9 +109,7 @@ const Portfolio = () => {
         image: bugtrackerShot,
         alt: "screenshot of bug tracker web app",
         details: [
-            "This is a web app to track tasks and issues in a software development",
-            "project and to assign users who are governed by user roles that determine",
-            "their access to functions.",
+            "This is a web app to track tasks and issues in a software development project and to assign users who are governed by user roles that determine their access to functions.",
         ],
         url: "https://bug-tracker-one.vercel.app/"
     }
@@ -121,9 +119,10 @@ const Portfolio = () => {
         url: "https://chevrondogtraining.com",
         image: cdtLogo,
         alt: "logo for chevron dog training",
-        details: ["Chevron Dog Training was established 2 years ago; operating in the Illawarra area.",
-            "Scheduling appointments was manual, as was invoicing and client management, preventing further growth. Web presence was limited to Facebook and Instagram.",
-            "Client information was recorded and filed on paper forms.",
+        details: [
+            "Developed a website to create a desktop and mobile experience to clients seeking information about staff and services offered, schedule calls and book appointments.",
+            "Design elements created to provide consistent branding across platforms and aid in user experience.",
+            "Established digital processes along with staff training sessions and material to demonstrate use of the system.",
         ],
         features: [
             {
