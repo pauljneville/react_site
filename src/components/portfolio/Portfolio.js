@@ -37,6 +37,7 @@ import cdtDigitalProcesses from '../../assets/portfolio/cdt-digital-processes.pn
 import cdtStaffTraining from '../../assets/portfolio/cdt-staff-training.png';
 import supermarketShot from '../../assets/portfolio/supermarket.png';
 import dogblogShot from '../../assets/portfolio/dogblog.png';
+import bugtrackerShot from '../../assets/portfolio/bugtracker.png';
 import Card from './Card';
 import ScrollToTopOnLoad from '../general/ScrollToTopOnLoad';
 
@@ -102,6 +103,18 @@ const Portfolio = () => {
         { label: 'Twilio', color: 'black' },
         { label: 'Google Cloud Platform', color: 'black' },
     ];
+    const bugtracker = {
+        name: "Bug Tracker",
+        title: "Bug / Issue Tracker",
+        image: bugtrackerShot,
+        alt: "screenshot of bug tracker web app",
+        details: [
+            "This is a web app to track tasks and issues in a software development",
+            "project and to assign users who are governed by user roles that determine",
+            "their access to functions.",
+        ],
+        url: "https://bug-tracker-one.vercel.app/"
+    }
     const cdt = {
         name: "Chevron Dog Training",
         title: "Dog Training, Walking and Pet Sitting",
@@ -195,8 +208,8 @@ const Portfolio = () => {
         ],
     }
     const dogblog = {
-        name: "Blog with Profile",
-        title: "Lali's Dog Blog",
+        name: "Lali's Dog Blog",
+        title: "Blog with Profile",
         image: dogblogShot,
         alt: "screenshot of dog blog site",
         details: [
@@ -239,6 +252,15 @@ const Portfolio = () => {
                         </Row>
                         <SizedBox width="20px" height="20px" />
                         <Column gap='2rem'>
+                            {/* Bug Tracker */}
+                            <ProjectCard title={bugtracker.name}>
+                                <OverviewCard
+                                    image={bugtracker.image}
+                                    title={bugtracker.title}
+                                    details={bugtracker.details}
+                                    url={bugtracker.url}
+                                />
+                            </ProjectCard>
                             {/* Chevron Dog Training */}
                             <ProjectCard title={cdt.name}>
                                 <OverviewCard
@@ -247,7 +269,7 @@ const Portfolio = () => {
                                     details={cdt.details}
                                     url={cdt.url}
                                 />
-                                <ExpansionCard title="Key Features" items={cdt.features} />
+                                {/* <ExpansionCard title="Key Features" items={cdt.features} /> */}
                             </ProjectCard>
                             {/* Dog Blog */}
                             <ProjectCard title={dogblog.name}>

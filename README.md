@@ -1,4 +1,5 @@
-# Resume website showing some projects to demonstrate usage of CSS, React and Firebase. Links included to their github repo.
+# Resume website showing some projects to demonstrate usage of CSS, React and Firebase.
+## Links included to their github repo.
 
 This project is located [here](https://paulneville.com.au).
 
