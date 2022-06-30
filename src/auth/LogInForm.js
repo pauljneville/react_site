@@ -63,6 +63,16 @@ const LogInForm = () => {
         }
     }
 
+    const onDefaultProfile = async () => {
+        try {
+            await auth.signInWithEmailAndPassword("default@email.com", "defaultPassword");
+            history.replace(dogBlogLinks.home.url);
+        } catch (error) {
+            console.log('error: ' + error);
+            setEmailError(error.message);
+        }
+    }
+
     // const onGithubSwitch = () => {
     //     setIsGithub(!isGithub);
     //     setIsEmailLink(false);
@@ -114,7 +124,12 @@ const LogInForm = () => {
                                     placeholder="Password"
                                     {...password}
                                 />}
-                                {!auth.isAuthenticating && <button type="submit">Submit</button>}
+                                {!auth.isAuthenticating &&
+                                    <div className="row">
+                                        <button type="submit">Submit</button>
+                                        <button className="demo" onClick={onDefaultProfile}>DEMO PROFILE</button>
+                                    </div>
+                                }
                                 {auth.isAuthenticating && <button type="submit" disabled="true">Loading...</button>}
                             </form>}
                         </div>

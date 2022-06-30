@@ -23,7 +23,7 @@ import TextCard from "./TextCard";
 import ChipsCard from './ChipsCard';
 import ProjectCard from './ProjectCard';
 import OverviewCard from './OverviewCard';
-import ExpansionCard from './ExpansionCard';
+// import ExpansionCard from './ExpansionCard';
 // import { FeatureCard } from './FeatureCard';
 import ScrollToTop from '../general/ScrollToTop';
 

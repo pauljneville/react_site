@@ -56,8 +56,11 @@ button:focus-within .dropdown {
   visibility: visible;
 } */
 
-* { margin: 0; padding: 0;}
-  
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .dogblog canvas {
   border: 1px dashed #000000;
 }
@@ -65,6 +68,7 @@ button:focus-within .dropdown {
 .dogblog a {
   color: #00f;
 }
+
 .dogblog button {
   background-color: #f1356d;
   color: #fff;
@@ -78,6 +82,7 @@ button:focus-within .dropdown {
   font-size: clamp(3rem, 6vw, 4.3rem);
   padding-left: 2rem;
 }
+
 .dogblog .header {
   /* width: 100vw; */
   margin: 0 auto;
@@ -93,12 +98,13 @@ button:focus-within .dropdown {
 }
 
 .dogblog .top-logo {
-  display:flex;
+  display: flex;
   background-color: #282c34;
   border-radius: 20%;
   width: clamp(3.2rem, 7vw, 5rem);
   padding: 0.4rem;
 }
+
 .dogblog .top-logo img {
   border-radius: 20%;
   width: 100%;
@@ -117,6 +123,7 @@ button:focus-within .dropdown {
   /* border: 2px dashed black; */
   background-color: #fff;
 }
+
 .main-middle-column {
   background-color: #282c34;
   margin: 0 auto;
@@ -128,6 +135,7 @@ button:focus-within .dropdown {
   display: flex;
   justify-content: center;
 }
+
 .dogblog .navbar .links {
   display: flex;
 }
@@ -141,6 +149,7 @@ button:focus-within .dropdown {
   /* display: flex; */
   margin: 0 auto;
 }
+
 .row-grid-wrapper {
   display: flex;
   grid-template-columns: repeat(auto, minmax(32rem, 1fr));
@@ -164,6 +173,7 @@ button:focus-within .dropdown {
   flex-grow: 1;
   /* padding-bottom: 2em; */
 }
+
 .dogblog .sidebar {
   /* position: relative;
   top: 0;
@@ -176,10 +186,12 @@ button:focus-within .dropdown {
   height: 100%;
   min-height: 100%;
 }
+
 .dogblog .sidebar p {
   color: white;
   text-decoration: 'none';
 }
+
 .dogblog .sidebar img {
   border-radius: 1rem;
   width: clamp(6.0rem, 24vw, 16rem);
@@ -203,9 +215,10 @@ button:focus-within .dropdown {
 .dogblog .blog-list img {
   width: 50px;
   height: 50px;
-  
+
   border-radius: 50%;
 }
+
 .dogblog .friend-preview {
   background-color: #f2aac0;
   padding-bottom: 10px;
@@ -213,15 +226,18 @@ button:focus-within .dropdown {
   border: 1px solid #ff1717;
   border-radius: 20px;
   margin: 5px;
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.dogblog .header h1, .dogblog .navbar h1 {
+.dogblog .header h1,
+.dogblog .navbar h1 {
   color: #f1356d;
 }
-.dogblog .header h2, .dogblog .navbar h2 {
+
+.dogblog .header h2,
+.dogblog .navbar h2 {
   color: #383838;
 }
 
@@ -234,6 +250,7 @@ button:focus-within .dropdown {
   text-decoration: none;
   padding: 0.5em 1em 2em 1em;
 }
+
 .dogblog .link-button-inv-button button {
   background-color: #f1356d;
   color: #fff;
@@ -247,6 +264,7 @@ button:focus-within .dropdown {
   height: 4em;
   padding: 0.65em 1em 1.9em 1em;
 }
+
 .dogblog .link-button-inv {
   background-color: #f1356d;
   color: #fff;
@@ -260,17 +278,21 @@ button:focus-within .dropdown {
   height: 1.5em;
   padding: 0.65em 1em 1.9em 1em;
 }
+
 .dogblog .link-button-inv-button button:active {
   background-color: #f5739a;
 }
+
 .dogblog .link-button-inv:active {
   background-color: #f5739a;
 }
+
 .dogblog .link-button:hover {
   color: white;
   background-color: hsl(342, 87%, 58%);
   border-radius: 8px;
 }
+
 .dogblog .link-button:active {
   color: white;
   background-color: #f5739a;
@@ -282,7 +304,9 @@ button:focus-within .dropdown {
   column-gap: 1em;
 }
 
-
+.dogblog .demo {
+  background-color: #1d58cf;
+}
 
 
 .image-404 {
@@ -293,6 +317,7 @@ button:focus-within .dropdown {
   background-size: contain;
   /* display: inline-block; */
 }
+
 .image-404:hover {
   background-image: url("../assets/dogblog/dog-404-2.png");
   background-repeat: no-repeat;
@@ -300,17 +325,18 @@ button:focus-within .dropdown {
 }
 
 
-@media only screen and (min-width: 650px)  {
-    /* .dogblog .header {
+@media only screen and (min-width: 650px) {
+
+  /* .dogblog .header {
       width: 80vw;
     } */
-    .dogblog .sidebar {
-      height: 100%;
-      min-height: 100vh;
-    } 
+  .dogblog .sidebar {
+    height: 100%;
+    min-height: 100vh;
+  }
 }
-@media only screen and (min-width: 800px)   {
-}
+
+@media only screen and (min-width: 800px) {}
 
 button.cancel {
   width: 2.0em;
@@ -319,6 +345,7 @@ button.cancel {
   background-repeat: no-repeat;
   background-size: contain;
 }
+
 button.edit {
   width: 2.0em;
   height: 2.0em;
@@ -335,17 +362,18 @@ button.edit {
   background-color: #282c34;
   color: white;
   height: 2em;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
 }
+
 /* .dogblog .footer-margin {
   height: 0.5rem;
 } */
 
 .dogblog .blog-list {
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
@@ -356,6 +384,7 @@ button.edit {
   width: 200px;
   height: 200px;
 }
+
 .dogblog textarea {
   resize: vertical;
   min-width: 100%;
@@ -364,7 +393,7 @@ button.edit {
 
 .dogblog .log-in-form {
   max-width: 400px;
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
@@ -372,23 +401,29 @@ button.edit {
 /* create new blog form */
 .dogblog .create {
   max-width: 400px;
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
+
 .dogblog .create form {
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
+
 .dogblog .create h2 {
   margin-bottom: 10px;
 }
+
 .dogblog .create label {
   margin-left: 5px;
   font-weight: 800;
 }
-.dogblog .create input, .dogblog .create textarea, .dogblog .create select {
+
+.dogblog .create input,
+.dogblog .create textarea,
+.dogblog .create select {
   width: auto;
   padding: 6px 10px;
   margin: 0px 0 20px 0;
@@ -396,59 +431,68 @@ button.edit {
   box-sizing: border-box;
   display: block;
 }
+
 .dogblog .create textarea {
   height: 100px;
 }
+
 .dogblog .create select {
   font-size: 26px;
 }
+
 .dogblog .create p {
   text-align: start;
 }
 
 /* blog details page */
 .dogblog .blog-details article {
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
+
 .dogblog .blog-details h2 {
   margin-bottom: 10px;
 }
+
 .dogblog .blog-details div {
   margin: 20px 0;
 }
 
 /* blog-preview */
 .dogblog .blog-preview {
-    padding-bottom: 10px;
-    padding-top: 10px;
-    border-bottom: 1px solid #b6b6b6;
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .dogblog .blog-preview:hover {
-    box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
-  }
-  .dogblog .blog-preview .leading h3 {
-    font-size: 20px;
-  }
-  .dogblog .blog-preview .trailing {
-    display:flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .dogblog .blog-preview h3 {
-    color: #f1356d;
-  }
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: 1px solid #b6b6b6;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.dogblog .blog-preview:hover {
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dogblog .blog-preview .leading h3 {
+  font-size: 20px;
+}
+
+.dogblog .blog-preview .trailing {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.dogblog .blog-preview h3 {
+  color: #f1356d;
+}
 
 
 
 
 /* auth-form */
 .dogblog .auth-form form {
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
@@ -456,29 +500,38 @@ button.edit {
 .dogblog .auth-form h2 {
   margin-bottom: 10px;
 }
+
 .dogblog .auth-form label {
   margin-left: 5px;
   font-weight: 800;
 }
-.dogblog .auth-form input, .dogblog .auth-form textarea, .dogblog .auth-form select {
+
+.dogblog .auth-form input,
+.dogblog .auth-form textarea,
+.dogblog .auth-form select {
   width: auto;
   padding: 6px 10px;
   margin: 0px 0 20px 0;
   border: 1px solid #ddd;
   box-sizing: border-box;
 }
+
 .dogblog .auth-form textarea {
   height: 100px;
 }
+
 .dogblog .auth-form select {
   font-size: 26px;
 }
+
 .dogblog .auth-form p {
   text-align: start;
 }
+
 .dogblog .auth-form switch {
   display: flex;
 }
+
 .dogblog .auth-form input {
   margin-right: 10px;
 }
